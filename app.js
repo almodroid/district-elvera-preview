@@ -81,13 +81,22 @@ const header=$('.site-header');header.style.opacity=String(uiReveal);header.styl
 $('.palace-photo').setAttribute('aria-hidden',String(introGone<.1));
 $('.bottom-meta').style.opacity=String(detailUiReveal);$('.bottom-meta').inert=detailUiReveal<.8;$('.bottom-meta').setAttribute('aria-hidden',String(detailUiReveal<.8));
 $('.chapter-caption').style.opacity=String(innerWidth<=700&&sceneIndex===5?0:detailUiReveal);$('.chapter-caption').setAttribute('aria-hidden',String(detailUiReveal<.8));$('.progress-track').style.opacity=String(detailUiReveal);
+// Match the central portal in both photographs before blending plates.
+// Wide portal: (836,631); detailed portal: (836,577), source size 1672 × 941.
 const zoom=between(p,.105,.205),entry=between(p,.255,.32);
-$('.palace-photo').style.transform=reduced?'none':`translateY(${-5*zoom}vh) scale(${1+zoom*1.05})`;
+const emergence=between(p,.012,.104),dolly=1+between(p,.205,.32)*.45;
+const coverHeight=Math.max(innerHeight,width/(1672/941));
+const wideScale=(1+zoom*1.72)*dolly;
+const portalAlignment=((577/941-.5)-(631/941-.5)*2.72)*coverHeight*zoom*dolly;
+const rise=innerHeight*.29*(1-emergence);
+$('.palace-photo').style.transform=reduced?'none':`translate3d(0,${rise+portalAlignment}px,0) scale(${wideScale})`;
 $('.palace-photo').style.filter='saturate(.86)';
-const closeReveal=reduced?(p>=.19?1:0):between(p,.155,.215);
+const closeReveal=reduced?(p>=.19?1:0):between(p,.20,.232);
 const close=$('.palace-close');close.style.opacity=String(closeReveal);close.setAttribute('aria-hidden',String(closeReveal<.1));
-close.style.transform=reduced?'none':`scale(${1+between(p,.20,.32)*.45})`;
-close.style.filter=`brightness(${1-entry*.13})`;
+close.style.transform=reduced?'none':`scale(${dolly})`;
+const birds=$('.sky-birds'),birdsVisible=between(p,.04,.075)*(1-between(p,.15,.20));
+birds.style.opacity=String(reduced?0:birdsVisible);birds.classList.toggle('birds-visible',!reduced&&birdsVisible>.01&&sceneIndex===0);
+close.style.filter=`saturate(.86) brightness(${1-entry*.13})`;
 const hallProgress=between(p,.302,.456);
 $('.hall-photo').style.transform=reduced?'none':`scale(${1+hallProgress*.055})`;
 $('.floor-lettering').style.opacity=String(reduced?1:between(p,.321,.353)*(1-between(p,.421,.448)));

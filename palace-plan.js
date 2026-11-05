@@ -251,11 +251,11 @@
       const active=selected===r.group, yOffset=r.id==='hall'?242:r.d-9;
       const p=P(r.x+r.w/2,r.z+yOffset,3.6);
       const opacity=active?.95:(r.id==='hall'?.86:1-.66*t);
-      out+=`<text x="${p[0]}" y="${p[1]}" text-anchor="middle" fill="${active?'#70582e':C.ink}" opacity="${fixed(opacity)}" font-size="${ar?(r.id==='hall'?13:r.w>180?10:8):(r.id==='hall'?10:r.w>180?8:6.6)}" font-family="${ar?'Elvera Arabic, Tahoma, sans-serif':'Arial, Helvetica, sans-serif'}" direction="${ar?'rtl':'ltr'}" font-weight="${r.id==='hall'||active?600:400}" letter-spacing="${ar?0:r.id==='hall'?2.5:1.05}">${ar?roomNamesAr[r.id]:r.name}</text>`;
+      out+=`<text x="${p[0]}" y="${p[1]}" text-anchor="middle" fill="${active?'#70582e':C.ink}" opacity="${fixed(opacity)}" font-size="${ar?(r.id==='hall'?13:r.w>180?10:8):(r.id==='hall'?10:r.w>180?8:6.6)}" font-family="${ar?'Elvera Plex, Tahoma, sans-serif':'Elvera Plex, Arial, sans-serif'}" direction="${ar?'rtl':'ltr'}" font-weight="${r.id==='hall'||active?600:400}" letter-spacing="${ar?0:r.id==='hall'?2.5:1.05}">${ar?roomNamesAr[r.id]:r.name}</text>`;
     }
     // Discreet plan notation. This is a concept drawing, not a scaled sales plan.
     const north=P(842,33,0);
-    out+=`<g transform="translate(${north[0]} ${north[1]})" stroke="${C.gold}" fill="none" opacity=".72"><path d="M0 25V-3M-4 4L0-3 4 4" stroke-width=".9"/><text x="0" y="-11" text-anchor="middle" fill="${C.ink}" stroke="none" font-family="Arial, Helvetica, sans-serif" font-size="7" letter-spacing="1">${ar?'ش':'N'}</text></g>`;
+    out+=`<g transform="translate(${north[0]} ${north[1]})" stroke="${C.gold}" fill="none" opacity=".72"><path d="M0 25V-3M-4 4L0-3 4 4" stroke-width=".9"/><text x="0" y="-11" text-anchor="middle" fill="${C.ink}" stroke="none" font-family="Elvera Plex, Arial, sans-serif" font-size="7" letter-spacing="1">${ar?'ش':'N'}</text></g>`;
     if(ar)out=out.replace('From line to life: a complete conceptual palace','من الخطّ إلى الحياة: تصوّر متكامل لقصر').replace('An illustrative palace with a grand hall, imperial stair, colonnades, two private wings, library, dining room, salons, terraces and formal gardens. Move from the architectural plan to an open-roof isometric palace. Conceptual design, not to scale.','قصر تصوّري يضم بهوًا كبيرًا ودرجًا مهيبًا وأروقة بأعمدة وأجنحة خاصة ومكتبة وغرفة طعام وصالات وشرفات وحدائق. يتحوّل المخطط إلى مجسّم معماري مفتوح السقف. تصميم تصوّري غير مرسوم بمقياس.');
     return out;
   }

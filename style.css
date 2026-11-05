@@ -89,12 +89,12 @@
 }
 
 /* Bilingual controls and Arabic typography are self-hosted. */
-@font-face{font-family:'Elvera Naskh';src:url('assets/fonts/NotoNaskhArabic-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:'Elvera Arabic';src:url('assets/fonts/NotoSansArabic-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Elvera Amiri';src:url('assets/fonts/luxury/Amiri-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Elvera Plex';src:url('assets/fonts/luxury/IBMPlexSansArabic-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
 .language-toggle{display:flex;align-items:center;justify-content:center;min-height:44px;min-width:36px;font-size:11px;letter-spacing:.02em;border-bottom:1px solid transparent}
-.language-toggle:hover{border-color:currentColor}.language-toggle[lang=ar]{font-family:'Elvera Arabic',Tahoma,sans-serif;font-size:12px}
-[dir=rtl] body{font-family:'Elvera Arabic',Tahoma,Arial,sans-serif;line-height:1.9}
-[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] .brand span,[dir=rtl] .chapter-menu>a{font-family:'Elvera Naskh',Georgia,serif;letter-spacing:0}
+.language-toggle:hover{border-color:currentColor}.language-toggle[lang=ar]{font-family:'Elvera Plex',Tahoma,sans-serif;font-size:12px}
+[dir=rtl] body{font-family:'Elvera Plex',Tahoma,Arial,sans-serif;line-height:1.9}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] .brand span,[dir=rtl] .chapter-menu>a{font-family:'Elvera Amiri',Georgia,serif;letter-spacing:0}
 [dir=rtl] h2{line-height:1.3;letter-spacing:0;font-size:clamp(56px,6.5vw,94px)}
 [dir=rtl] h2 em{font-style:normal}
 [dir=rtl] .eyebrow,[dir=rtl] .small-label,[dir=rtl] button,[dir=rtl] .desktop-nav a,[dir=rtl] .brand span,[dir=rtl] .chapter-caption,[dir=rtl] .scroll-cue span,[dir=rtl] .bottom-meta,[dir=rtl] .rise-control,[dir=rtl] .plan-disclaimer,[dir=rtl] footer,[dir=rtl] summary,[dir=rtl] .closing-link{letter-spacing:0;text-transform:none}
@@ -105,22 +105,22 @@
 [dir=rtl] .skip{right:20px;left:auto}
 [dir=rtl] .chapter-menu{inset:0 auto 0 0;box-shadow:60px 0 100px #51452f20}
 [dir=rtl] .chapter-menu>a{font-size:31px;line-height:1.5;padding:8px 0}
-[dir=rtl] .chapter-menu>a span{font-family:'Elvera Arabic',Tahoma,sans-serif;margin-right:0;margin-left:20px}
+[dir=rtl] .chapter-menu>a span{font-family:'Elvera Plex',Tahoma,sans-serif;margin-right:0;margin-left:20px}
 [dir=rtl] .chapter-menu>a:hover{transform:translateX(-5px)}
 [dir=rtl] .chapter-menu>p{font-size:11px;line-height:1.9}
 [dir=rtl] .hero-copy h1{padding:0;font-size:clamp(100px,13vw,190px);line-height:1.2;letter-spacing:0}
 [dir=rtl] .hero-copy h1 span{letter-spacing:0;padding:0;font-size:.29em;margin-bottom:0}
 [dir=rtl] .hero-copy .eyebrow{font-size:10px;letter-spacing:0;margin-bottom:8px}
 [dir=rtl] .hero-copy .fine-rule{margin:16px auto 20px}
-[dir=rtl] .hero-copy p{font-family:'Elvera Arabic',Tahoma,sans-serif;font-size:13px;font-style:normal}
+[dir=rtl] .hero-copy p{font-family:'Elvera Plex',Tahoma,sans-serif;font-size:13px;font-style:normal}
 [dir=rtl] .scene-copy{text-align:right;width:355px;max-width:35%}
 [dir=rtl] .scene-copy p{font-size:13px;line-height:2;max-width:300px;margin-top:20px}
 [dir=rtl] .scene-copy .eyebrow{margin-bottom:16px}
 [dir=rtl] .object-tabs{gap:25px;justify-content:flex-start;margin-top:25px}
 [dir=rtl] .object-tabs button,[dir=rtl] .text-button{font-size:11px}
-[dir=rtl] .material-note{font-family:'Elvera Naskh',Georgia,serif;font-style:normal;font-size:22px}
+[dir=rtl] .material-note{font-family:'Elvera Amiri',Georgia,serif;font-style:normal;font-size:22px}
 [dir=rtl] .hall-chapter{left:auto;right:8.2vw;font-size:10px}
-[dir=rtl] .floor-lettering>span{font-family:'Elvera Arabic',Tahoma,sans-serif;font-size:11px;letter-spacing:0;margin-bottom:5px}
+[dir=rtl] .floor-lettering>span{font-family:'Elvera Plex',Tahoma,sans-serif;font-size:11px;letter-spacing:0;margin-bottom:5px}
 [dir=rtl] .floor-lettering h2{font-size:clamp(56px,7.7vw,120px);line-height:1.25}
 [dir=rtl] .floor-lettering i{margin-top:8px}
 [dir=rtl] .detail-scene .scene-copy{left:auto;right:8.2vw}
@@ -199,3 +199,91 @@
  [dir=rtl] .plan-disclaimer{font-size:8px}
  [dir=rtl] .bottom-meta button{min-height:44px}
 }
+
+/* Editorial typography: classic display faces with a clear shared UI family. */
+@font-face{font-family:'Elvera Cormorant';src:url('assets/fonts/luxury/CormorantGaramond-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Elvera Cormorant';src:url('assets/fonts/luxury/CormorantGaramond-Italic.woff2') format('woff2');font-style:italic;font-weight:400;font-display:swap}
+body{font-family:'Elvera Plex',Arial,Helvetica,sans-serif}
+[dir=ltr] h1,[dir=ltr] h2,[dir=ltr] .brand span,[dir=ltr] .chapter-menu>a,[dir=ltr] .hero-copy p,[dir=ltr] .material-note{font-family:'Elvera Cormorant',Georgia,'Times New Roman',serif;font-weight:400}
+[dir=ltr] h2{font-size:clamp(58px,6.9vw,104px);line-height:1.03;letter-spacing:-.035em}
+[dir=ltr] .hero-copy h1{font-size:clamp(94px,13.8vw,194px);letter-spacing:.12em;padding-left:.12em}
+[dir=ltr] .hero-copy h1 span{font-weight:400;letter-spacing:.5em}
+[dir=ltr] .hero-copy p{font-size:20px;line-height:1.5}
+[dir=ltr] .material-note{font-size:22px}
+[dir=ltr] .plan-heading h2{font-size:clamp(55px,6.2vw,94px)}
+[dir=ltr] .floor-lettering h2{font-size:clamp(46px,7.5vw,118px)}
+[dir=ltr] .chapter-menu>a{font-size:32px}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] .brand span,[dir=rtl] .chapter-menu>a{font-synthesis:none;font-weight:400}
+[dir=rtl] h2{line-height:1.38}
+[dir=rtl] .brand span{font-size:27px}
+[dir=rtl] .hero-copy h1{font-size:clamp(114px,14vw,198px);line-height:1.2}
+[dir=rtl] .hero-copy h1 span{font-size:.27em;margin-bottom:3px}
+[dir=rtl] .hero-copy .eyebrow{margin-bottom:12px}
+[dir=rtl] .scene-copy p{line-height:1.95}
+[dir=rtl] .floor-lettering h2{line-height:1.35}
+[dir=rtl] .material-note{font-size:24px}
+@media(max-width:700px){
+ [dir=ltr] .hero-copy h1{font-size:22vw;letter-spacing:.07em;padding-left:.07em}
+ [dir=ltr] .hero-copy p{font-size:16px}
+ [dir=ltr] .scene-copy h2{font-size:66px}
+ [dir=ltr] .ritual-scene .scene-copy h2{font-size:54px}
+ [dir=ltr] .detail-scene .scene-copy h2{font-size:57px}
+ [dir=ltr] .plan-heading h2{font-size:48px}
+ [dir=ltr] .floor-lettering h2{font-size:44px}
+ [dir=ltr] .material-note{font-size:18px}
+ [dir=ltr] .closing h2{font-size:63px}
+ [dir=ltr] .chapter-menu>a{font-size:29px}
+ [dir=rtl] .brand span{font-size:23px}
+ [dir=rtl] .hero-copy h1{font-size:31vw}
+ [dir=rtl] .scene-copy h2{line-height:1.34}
+ [dir=rtl] .plan-heading h2{font-size:42px;line-height:1.35}
+ [dir=rtl] .floor-lettering h2{font-size:58px;line-height:1.25}
+ [dir=rtl] .material-note{font-size:21px}
+}
+/* Body copy stays calm and readable beneath the expressive display faces. */
+[dir] .scene-copy p{font-size:14px;line-height:1.85}
+[dir] .plan-heading p{font-size:14px}
+[dir] .closing>p{font-size:14px}
+[dir] .closing details{font-size:13px}
+[dir=rtl] .hero-copy p{font-size:14px}
+@media(max-width:700px){
+ [dir] .scene-copy p{font-size:14px;line-height:1.75;max-width:285px;margin-top:17px}
+ [dir] .sanctuary-copy p{max-width:285px}
+ [dir] .object-tabs{margin-top:16px}
+ [dir] .object-tabs button,[dir] .text-button{font-size:11px}
+ [dir] .plan-heading p{font-size:12px;line-height:1.7;margin-top:12px}
+ [dir] .plan-controls>p{font-size:10px}
+ [dir] .closing>p{font-size:14px;line-height:1.8}
+ [dir] .closing details{font-size:12px}
+ [dir=rtl] .hero-copy p{font-size:13px;line-height:1.8}
+}
+
+/* Scroll-led ascent, followed by a registered match dissolve at the portal. */
+.palace-photo{left:0;top:0;width:100%;height:100%;transform-origin:50% 50%;backface-visibility:hidden}
+.palace-close{transform-origin:50% 50%;backface-visibility:hidden;filter:saturate(.86)}
+.sky-birds{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:0;direction:ltr;contain:layout paint}
+.bird-flight{position:absolute;left:-15%;animation:bird-crossing 30s linear infinite;animation-play-state:paused;will-change:transform}
+.sky-birds svg{display:block;width:100%;height:100%;overflow:visible;fill:#625748}
+.bird-near{width:42px;height:25px;top:21%;opacity:.66}
+.bird-near-1{animation-delay:-12s;animation-duration:33s}
+.bird-near-2{top:24%;width:31px;height:20px;animation-delay:-14s;animation-duration:35s;opacity:.48}
+.bird-near-3{top:17%;width:22px;height:15px;animation-delay:-21s;animation-duration:42s;opacity:.4}
+.bird-wing{transform-box:view-box;transform-origin:20px 12px;animation:bird-wingbeat 1.7s ease-in-out infinite;animation-play-state:paused}
+.bird-wing-right{animation-name:bird-wingbeat-right}
+.bird-near-2 .bird-wing{animation-duration:1.45s;animation-delay:-.6s}
+.bird-near-3 .bird-wing{animation-duration:1.25s;animation-delay:-.9s}
+.bird-flock{top:32%;width:130px;height:45px;opacity:.29;animation-duration:65s;animation-delay:-39s}
+.bird-flock-2{top:15%;opacity:.23;animation-duration:78s;animation-delay:-19s;scale:.68}
+.bird-flock span{position:absolute;left:var(--bx);top:var(--by);width:9px;height:6px}
+.bird-flock .bird-wing{animation-duration:1.3s;animation-delay:var(--phase)}
+.birds-visible .bird-flight,.birds-visible .bird-wing{animation-play-state:running}
+@keyframes bird-crossing{0%{transform:translate3d(-5vw,2vh,0) rotate(-3deg)}50%{transform:translate3d(63vw,-1vh,0) rotate(1deg)}100%{transform:translate3d(135vw,-4vh,0) rotate(-2deg)}}
+@keyframes bird-wingbeat{0%,100%{transform:rotate(0deg) scaleY(1)}50%{transform:rotate(-12deg) scaleY(-.38)}}
+@keyframes bird-wingbeat-right{0%,100%{transform:rotate(0deg) scaleY(1)}50%{transform:rotate(12deg) scaleY(-.38)}}
+.reduced .sky-birds{display:none}
+@media(prefers-reduced-motion:reduce){.sky-birds{display:none}.bird-flight,.bird-wing{animation:none!important}}
+@media(max-width:700px){.bird-near{width:30px;height:18px}.bird-near-2{width:23px;height:15px}.bird-near-3{width:16px;height:12px}.bird-flock-2{display:none}.bird-flock{top:31%;scale:.75}}
+
+@media(max-width:700px){[dir=rtl] .lamp-hotspot{top:64%}}
+
+.palace-photo{mask-image:linear-gradient(to bottom,transparent,#000 18%,#000);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 18%,#000)}
