@@ -251,7 +251,7 @@
       const active=selected===r.group, yOffset=r.id==='hall'?242:r.d-9;
       const p=P(r.x+r.w/2,r.z+yOffset,3.6);
       const opacity=active?.95:(r.id==='hall'?.86:1-.66*t);
-      out+=`<text x="${p[0]}" y="${p[1]}" text-anchor="middle" fill="${active?'#70582e':C.ink}" opacity="${fixed(opacity)}" font-size="${ar?(r.id==='hall'?13:r.w>180?10:8):(r.id==='hall'?10:r.w>180?8:6.6)}" font-family="${ar?'Elvera Plex, Tahoma, sans-serif':'Elvera Plex, Arial, sans-serif'}" direction="${ar?'rtl':'ltr'}" font-weight="${r.id==='hall'||active?600:400}" letter-spacing="${ar?0:r.id==='hall'?2.5:1.05}">${ar?roomNamesAr[r.id]:r.name}</text>`;
+      out+=`<text x="${p[0]}" y="${p[1]}" text-anchor="middle" fill="${active?'#70582e':C.ink}" opacity="${fixed(opacity)}" font-size="${ar?(r.id==='hall'?13:r.w>180?10:8):(r.id==='hall'?10:r.w>180?8:6.6)}" font-family="${ar?'Elvera Alexandria, Tahoma, sans-serif':'Elvera Plex, Arial, sans-serif'}" direction="${ar?'rtl':'ltr'}" font-weight="${r.id==='hall'||active?600:400}" letter-spacing="${ar?0:r.id==='hall'?2.5:1.05}">${ar?roomNamesAr[r.id]:r.name}</text>`;
     }
     // Discreet plan notation. This is a concept drawing, not a scaled sales plan.
     const north=P(842,33,0);

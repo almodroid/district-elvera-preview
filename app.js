@@ -55,6 +55,13 @@ function drawOrnament(progress){
  wrap.style.transform=`translate3d(${mobile?(T.ar?1:-1)*innerWidth*.27*between(track,.25,.72):0}px,${-travel*track}px,0)`;
  const copy=$('#scene-detail .scene-copy');copy.style.opacity=String(mobile&&!reduced?1-between(amount,.19,.38):1);
 }
+// Source-image roofline. Projected with the palace camera to occlude birds behind it.
+const palaceSkyEdge=[[0,799],[80,778],[80,740],[169,740],[169,620],[239,596],[284,591],[284,568],[341,568],[341,497],[357,477],[375,567],[396,566],[396,482],[413,478],[413,439],[447,440],[449,463],[575,486],[579,563],[603,564],[607,503],[612,480],[627,563],[660,560],[660,494],[675,483],[675,448],[713,417],[771,389],[830,377],[835,361],[842,377],[908,394],[971,425],[997,453],[998,488],[1015,494],[1015,563],[1039,564],[1045,490],[1054,475],[1062,564],[1091,567],[1091,488],[1216,463],[1218,439],[1250,439],[1252,476],[1300,482],[1300,566],[1318,568],[1322,487],[1331,477],[1340,568],[1388,591],[1435,596],[1504,620],[1504,740],[1590,740],[1594,780],[1672,799]];
+function maskBirdDepth(scale,offset,coverHeight,width){
+ const coverWidth=coverHeight*1672/941;
+ const points=[[0,0],[1672,0],...palaceSkyEdge.slice().reverse()];
+ $('.sky-birds').style.clipPath='polygon('+points.map(([x,y])=>`${(width/2+(x/1672-.5)*coverWidth*scale).toFixed(2)}px ${(innerHeight/2+(y/941-.5)*coverHeight*scale+offset).toFixed(2)}px`).join(',')+')';
+}
 const roomCopy=T.ar?window.ElveraPalace.roomCopyAr:window.ElveraPalace.roomCopy;
 const defaultRoomCopy=T.ar?window.ElveraPalace.defaultCopyAr:window.ElveraPalace.defaultCopy;
 function drawPlan(t){
@@ -96,12 +103,17 @@ const close=$('.palace-close');close.style.opacity=String(closeReveal);close.set
 close.style.transform=reduced?'none':`scale(${dolly})`;
 const birds=$('.sky-birds'),birdsVisible=between(p,.04,.075)*(1-between(p,.15,.20));
 birds.style.opacity=String(reduced?0:birdsVisible);birds.classList.toggle('birds-visible',!reduced&&birdsVisible>.01&&sceneIndex===0);
+if(birdsVisible>.001&&!reduced){
+ maskBirdDepth(wideScale,rise+portalAlignment,coverHeight,width);
+ const titleTop=innerHeight*(width<=700&&T.ar?.24:.21)+20*(1-between(p,.053,.096))-45*between(p,.128,.152);
+ birds.style.maskImage=`linear-gradient(to bottom,#000 0,#000 ${Math.max(0,titleTop-22)}px,transparent ${Math.max(0,titleTop-10)}px,transparent 100%)`;
+}
 close.style.filter=`saturate(.86) brightness(${1-entry*.13})`;
 const hallProgress=between(p,.302,.456);
 $('.hall-photo').style.transform=reduced?'none':`scale(${1+hallProgress*.055})`;
 $('.floor-lettering').style.opacity=String(reduced?1:between(p,.321,.353)*(1-between(p,.421,.448)));
-const heroReveal=reduced?(p>=.025&&p<.18?1:0):between(p,.053,.096)*(1-between(p,.136,.175));$('.hero-copy').style.opacity=String(heroReveal);$('.hero-copy').style.transform=`translateY(${20*(1-between(p,.053,.096))-45*between(p,.136,.175)}px)`;$('.hero-copy').setAttribute('aria-hidden',String(heroReveal<.1));
-const approachReveal=reduced?0:between(p,.145,.166)*(1-between(p,.195,.218));$('.approach-copy').style.opacity=String(approachReveal);$('.approach-copy').style.transform=`translateY(${24*(1-between(p,.145,.166))}px)`;$('.approach-copy').setAttribute('aria-hidden',String(approachReveal<.1));
+const heroReveal=reduced?(p>=.025&&p<.18?1:0):between(p,.053,.096)*(1-between(p,.128,.152));$('.hero-copy').style.opacity=String(heroReveal);$('.hero-copy').style.transform=`translateY(${20*(1-between(p,.053,.096))-45*between(p,.128,.152)}px)`;$('.hero-copy').setAttribute('aria-hidden',String(heroReveal<.1));
+const approachReveal=reduced?0:between(p,.153,.173)*(1-between(p,.195,.218));$('.approach-copy').style.opacity=String(approachReveal);$('.approach-copy').style.transform=`translateY(${24*(1-between(p,.153,.173))}px)`;$('.approach-copy').setAttribute('aria-hidden',String(approachReveal<.1));
 const thresholdReveal=reduced?(p>=.19?1:0):between(p,.228,.25)*(1-between(p,.275,.302));$('.threshold-copy').style.opacity=String(thresholdReveal);$('.threshold-copy').setAttribute('aria-hidden',String(thresholdReveal<.1));
 const frame=$('.window-frame');frame.style.opacity=String(between(p,.263,.284)*(1-between(p,.332,.35)));frame.style.transform=`translate(-50%,-50%) scale(${.55+entry*18})`;frame.style.top='50%';
 $('.cloud-one').style.transform=`translate(${-zoom*60}%,${zoom*50}%) scale(${1+zoom})`;$('.cloud-two').style.transform=`translate(${zoom*55}%,${zoom*40}%) scale(${1+zoom})`;$('.cloud-three').style.transform=`translateY(${-zoom*150}%)`;
