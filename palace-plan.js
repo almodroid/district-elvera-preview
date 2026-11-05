@@ -10,6 +10,15 @@
     gardens: 'The gardens: formal parterres, open terraces and a conservatory draw the palace into the landscape.'
   });
   const defaultCopy = 'A complete conceptual palace unfolds around the grand hall. Select a space to explore the whole.';
+  const roomCopyAr=Object.freeze({
+    hall:'البهو الكبير: قلب القصر بارتفاعه الشاهق، وصفَّي أعمدته، ودرجه المهيب.',
+    suites:'الأجنحة الخاصة: أجنحة للنوم مع غرف للملابس وحمّامات، منفصلة عن مساحات الاستقبال.',
+    library:'المكتبة: جدران تحتضن الكتب، وطاولة قراءة رحبة، وإيقاع أهدأ في الجناح الغربي.',
+    dining:'غرفة الطعام: طاولة ولائم طويلة تتصل بالبهو وصالات الجناح الشرقي.',
+    gardens:'الحدائق: أحواض زراعية منتظمة، وشرفات مفتوحة، وحديقة زجاجية تصل القصر بمحيطه.'
+  });
+  const defaultCopyAr='تصوّر لقصر تتوزّع مساحاته حول البهو الكبير. اختر إحدى المساحات لاستكشاف تفاصيلها.';
+  const roomNamesAr={'hall':'البهو الكبير','gallery':'الرواق الكبير','foyer':'بهو الاستقبال','west-suite':'الجناح الغربي','west-dressing':'غرفة الملابس','west-bath':'الحمّام','library':'المكتبة','music':'صالة الموسيقى','drawing':'صالة الجلوس','east-suite':'الجناح الشرقي','east-dressing':'غرفة الملابس','east-bath':'الحمّام','dining':'غرفة الطعام','morning':'صالة صباحية','conservatory':'الحديقة الزجاجية','west-terrace':'الشرفة الغربية','portico':'رواق المدخل','east-terrace':'الشرفة الشرقية'};
   const C = { paper: '#f5f0e5', stone: '#ded2bd', pale: '#f5efdf', wall: '#e7dcc7',
     edge: '#a3967c', gold: '#a58b5a', darkGold: '#85714d', shade: '#b9aa8f',
     ink: '#72664f', olive: '#929c7b', leaf: '#7e8967', green: '#c6c9b4', cream: '#fffaf0' };
@@ -36,7 +45,8 @@
   const fixed = n => Number(n.toFixed(2));
   const clamp = n => Math.max(0, Math.min(1, Number.isFinite(Number(n)) ? Number(n) : 0));
 
-  function render(amount, selectedRoom = '') {
+  function render(amount, selectedRoom = '', locale = 'en') {
+    const ar=locale==='ar';
     const t = clamp(amount), selected = Object.prototype.hasOwnProperty.call(roomCopy, selectedRoom) ? selectedRoom : '';
     const a = .96 - .15 * t, b = .29 * t, c = -.47 * t, d = .95 - .48 * t;
     const ox = 550 - 420 * a - 305 * c, oy = 380 + 50 * t - 420 * b - 305 * d;
@@ -241,13 +251,14 @@
       const active=selected===r.group, yOffset=r.id==='hall'?242:r.d-9;
       const p=P(r.x+r.w/2,r.z+yOffset,3.6);
       const opacity=active?.95:(r.id==='hall'?.86:1-.66*t);
-      out+=`<text x="${p[0]}" y="${p[1]}" text-anchor="middle" fill="${active?'#70582e':C.ink}" opacity="${fixed(opacity)}" font-size="${r.id==='hall'?10:r.w>180?8:6.6}" font-family="Arial, Helvetica, sans-serif" font-weight="${r.id==='hall'||active?600:400}" letter-spacing="${r.id==='hall'?2.5:1.05}">${r.name}</text>`;
+      out+=`<text x="${p[0]}" y="${p[1]}" text-anchor="middle" fill="${active?'#70582e':C.ink}" opacity="${fixed(opacity)}" font-size="${ar?(r.id==='hall'?13:r.w>180?10:8):(r.id==='hall'?10:r.w>180?8:6.6)}" font-family="${ar?'Elvera Arabic, Tahoma, sans-serif':'Arial, Helvetica, sans-serif'}" direction="${ar?'rtl':'ltr'}" font-weight="${r.id==='hall'||active?600:400}" letter-spacing="${ar?0:r.id==='hall'?2.5:1.05}">${ar?roomNamesAr[r.id]:r.name}</text>`;
     }
     // Discreet plan notation. This is a concept drawing, not a scaled sales plan.
     const north=P(842,33,0);
-    out+=`<g transform="translate(${north[0]} ${north[1]})" stroke="${C.gold}" fill="none" opacity=".72"><path d="M0 25V-3M-4 4L0-3 4 4" stroke-width=".9"/><text x="0" y="-11" text-anchor="middle" fill="${C.ink}" stroke="none" font-family="Arial, Helvetica, sans-serif" font-size="7" letter-spacing="1">N</text></g>`;
+    out+=`<g transform="translate(${north[0]} ${north[1]})" stroke="${C.gold}" fill="none" opacity=".72"><path d="M0 25V-3M-4 4L0-3 4 4" stroke-width=".9"/><text x="0" y="-11" text-anchor="middle" fill="${C.ink}" stroke="none" font-family="Arial, Helvetica, sans-serif" font-size="7" letter-spacing="1">${ar?'ش':'N'}</text></g>`;
+    if(ar)out=out.replace('From line to life: a complete conceptual palace','من الخطّ إلى الحياة: تصوّر متكامل لقصر').replace('An illustrative palace with a grand hall, imperial stair, colonnades, two private wings, library, dining room, salons, terraces and formal gardens. Move from the architectural plan to an open-roof isometric palace. Conceptual design, not to scale.','قصر تصوّري يضم بهوًا كبيرًا ودرجًا مهيبًا وأروقة بأعمدة وأجنحة خاصة ومكتبة وغرفة طعام وصالات وشرفات وحدائق. يتحوّل المخطط إلى مجسّم معماري مفتوح السقف. تصميم تصوّري غير مرسوم بمقياس.');
     return out;
   }
   const target = typeof window === 'undefined' ? globalThis : window;
-  target.ElveraPalace = Object.freeze({ render, roomCopy, defaultCopy, viewBox });
+  target.ElveraPalace = Object.freeze({ render, roomCopy, defaultCopy, roomCopyAr, defaultCopyAr, viewBox });
 })();

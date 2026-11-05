@@ -1,5 +1,6 @@
 (() => {
 'use strict';
+const T=window.ElveraText;
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const clamp = (v,a=0,b=1) => Math.min(b,Math.max(a,v));
 const ease = t => {t=clamp(t);return t*t*(3-2*t)};
@@ -7,22 +8,23 @@ const between=(p,a,b)=>ease((p-a)/(b-a));
 const journey=$('#journey'), stage=$('#stage'), scenes=$$('.scene');
 const sceneBounds=[[0,.32],[.302,.456],[.44,.636],[.62,.758],[.74,.888],[.872,1.02]];
 const chapterStarts=[0,.25,.36,.50,.65,.765,.925];
-const chapterNames=['The arrival','The threshold','The grand hall','The sanctuary','The ritual','The detail','The perspective'];
+const chapterNames=T.chapters;
+const chapterIds=['arrival','threshold','hall','sanctuary','ritual','detail','plan'];
 let p=0, raf=0, reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, planManual=false, planRise=0, selectedRoom='', activeObject='bed', wholeRoom=false;
 let previousFocus=null, lastScene=-1, lastPlan=-1;
 const sink=$('#scene-ritual');
 function scrollToProgress(value, behavior){window.scrollTo({top:journey.offsetTop + value*(journey.offsetHeight-innerHeight),behavior:behavior==='auto'?'instant':(behavior || (reduced?'instant':'smooth'))});}
-function closeMenu(){const wasOpen=!$('#chapters').hidden;$('#chapters').hidden=true;$('.menu-toggle').setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');if(wasOpen && previousFocus) previousFocus.focus({preventScroll:true});}
-$('.menu-toggle').addEventListener('click',()=>{const open=$('#chapters').hidden;if(open){previousFocus=document.activeElement;$('#chapters').hidden=false;$('.menu-toggle').setAttribute('aria-expanded','true');document.body.classList.add('menu-open');$('#chapters a').focus();}else closeMenu();});
+function closeMenu(){const wasOpen=!$('#chapters').hidden;$('#chapters').hidden=true;$('.menu-toggle').setAttribute('aria-expanded','false');$('.menu-toggle').setAttribute('aria-label',T.menuOpen);document.body.classList.remove('menu-open');if(wasOpen && previousFocus) previousFocus.focus({preventScroll:true});}
+$('.menu-toggle').addEventListener('click',()=>{const open=$('#chapters').hidden;if(open){previousFocus=document.activeElement;$('#chapters').hidden=false;$('.menu-toggle').setAttribute('aria-expanded','true');$('.menu-toggle').setAttribute('aria-label',T.menuClose);document.body.classList.add('menu-open');$('#chapters a').focus();}else closeMenu();});
 document.addEventListener('keydown',event=>{if($('#chapters').hidden)return;if(event.key==='Escape')closeMenu();if(event.key==='Tab'){const links=[$('.menu-toggle'),...$$('#chapters a')];const i=links.indexOf(document.activeElement);if(event.shiftKey&&i===0){event.preventDefault();links[links.length-1].focus();}else if(!event.shiftKey&&i===links.length-1){event.preventDefault();links[0].focus();}}});
 $$('a[href^="#"]').forEach(a=>a.addEventListener('click',event=>{const target=$(a.getAttribute('href'));if(!target)return;if(target.dataset.progress!==undefined){event.preventDefault();closeMenu();scrollToProgress(Number(target.dataset.progress));history.replaceState(null,'',a.getAttribute('href'));}else closeMenu();}));
 $('.scroll-cue').addEventListener('click',()=>{const next=chapterStarts.find(v=>v>p+.025);if(next!==undefined)scrollToProgress(next);else $('#readable').scrollIntoView({behavior:reduced?'auto':'smooth'});});
-function applyMotion(){document.documentElement.style.scrollBehavior=reduced?'auto':'smooth';document.body.classList.toggle('reduced',reduced);$('#motion-toggle').setAttribute('aria-pressed',String(reduced));$('#motion-toggle').textContent=reduced?'Full experience':'Reduce motion';requestTick();}
+function applyMotion(){document.documentElement.style.scrollBehavior=reduced?'auto':'smooth';document.body.classList.toggle('reduced',reduced);$('#motion-toggle').setAttribute('aria-pressed',String(reduced));$('#motion-toggle').textContent=reduced?T.motionFull:T.motionReduced;requestTick();}
 $('#motion-toggle').addEventListener('click',()=>{const oldP=p;reduced=!reduced;applyMotion();scrollToProgress(oldP,'auto');});
 window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{reduced=e.matches;applyMotion();});
-function selectObject(kind){activeObject=kind;$$('[data-object]').forEach(button=>{button.classList.toggle('active',button.dataset.object===kind);if(button.hasAttribute('aria-pressed'))button.setAttribute('aria-pressed',String(button.dataset.object===kind));});const phone=innerWidth<=700;$('.room-focus').style.maskImage=kind==='lamp'?`radial-gradient(ellipse ${phone?'42% 37% at 77% 58%':'28% 44% at 71.5% 53%'},#000 42%,transparent 100%)`:`radial-gradient(ellipse ${phone?'62% 43% at 49% 69%':'42% 48% at 44% 67%'},#000 47%,transparent 100%)`;$('#sanctuary-description').textContent=kind==='lamp'?'A warm glow, held in a sculptural form. Light that softens the edges of the day.':'A softer rhythm. Sculpted forms, quiet textures, and space to simply be.';$('#material-text').textContent=kind==='lamp'?'A quieter kind of brilliance.':'Form made for stillness.';}
+function selectObject(kind){activeObject=kind;$$('[data-object]').forEach(button=>{button.classList.toggle('active',button.dataset.object===kind);if(button.hasAttribute('aria-pressed'))button.setAttribute('aria-pressed',String(button.dataset.object===kind));});const phone=innerWidth<=700;$('.room-focus').style.maskImage=kind==='lamp'?`radial-gradient(ellipse ${phone?'42% 37% at 77% 58%':'28% 44% at 71.5% 53%'},#000 42%,transparent 100%)`:`radial-gradient(ellipse ${phone?'62% 43% at 49% 69%':'42% 48% at 44% 67%'},#000 47%,transparent 100%)`;$('#sanctuary-description').textContent=kind==='lamp'?T.lampDescription:T.bedDescription;$('#material-text').textContent=kind==='lamp'?T.lampNote:T.bedNote;}
 $$('[data-object]').forEach(b=>b.addEventListener('click',()=>selectObject(b.dataset.object)));
-$('.focus-toggle').addEventListener('click',()=>{wholeRoom=!wholeRoom;sink.classList.toggle('whole',wholeRoom);$('.focus-toggle').setAttribute('aria-pressed',String(!wholeRoom));$('.focus-toggle').innerHTML=wholeRoom?'Focus on the basin <span>↗</span>':'View the whole room <span>↗</span>';});
+$('.focus-toggle').addEventListener('click',()=>{wholeRoom=!wholeRoom;sink.classList.toggle('whole',wholeRoom);$('.focus-toggle').setAttribute('aria-pressed',String(!wholeRoom));$('.focus-toggle').innerHTML=(wholeRoom?T.focusBasin:T.wholeRoom)+' <span aria-hidden="true">↗</span>';});
 // A continuous vertical ornament, progressively inked in the direction of travel.
 const ornamentTraces=$('#ornament-traces');
 let ornamentMarkup='';
@@ -50,18 +52,19 @@ function drawOrnament(progress){
  const wrap=$('.ornament-wrap');
  const travel=Math.max(0,wrap.offsetHeight-innerHeight*(mobile?.28:.64));
  const track=reduced?(mobile?.49:.32):(mobile?between(amount,.2,1):amount);
- wrap.style.transform=`translate3d(${mobile?-innerWidth*.27*between(track,.25,.72):0}px,${-travel*track}px,0)`;
+ wrap.style.transform=`translate3d(${mobile?(T.ar?1:-1)*innerWidth*.27*between(track,.25,.72):0}px,${-travel*track}px,0)`;
  const copy=$('#scene-detail .scene-copy');copy.style.opacity=String(mobile&&!reduced?1-between(amount,.19,.38):1);
 }
-const roomCopy=window.ElveraPalace.roomCopy;
+const roomCopy=T.ar?window.ElveraPalace.roomCopyAr:window.ElveraPalace.roomCopy;
+const defaultRoomCopy=T.ar?window.ElveraPalace.defaultCopyAr:window.ElveraPalace.defaultCopy;
 function drawPlan(t){
- t=clamp(t);$('#plan-drawing').innerHTML=window.ElveraPalace.render(t,selectedRoom);
- $('#rise').value=String(Math.round(t*100));$('#rise-value').textContent=Math.round(t*100)+'%';
+ t=clamp(t);$('#plan-drawing').innerHTML=window.ElveraPalace.render(t,selectedRoom,T.ar?'ar':'en');
+ $('#rise').value=String(Math.round(t*100));$('#rise-value').textContent=T.percent(Math.round(t*100));
  $$('[data-view]').forEach(b=>{const active=Number(b.dataset.view)===(t<.5?0:1);b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});lastPlan=t;
 }
 let planAnimation=0;function animatePlan(target){cancelAnimationFrame(planAnimation);planManual=true;if(reduced){planRise=target;drawPlan(planRise);return;}const from=planRise,start=performance.now();function frame(now){let q=clamp((now-start)/1000);planRise=from+(target-from)*ease(q);drawPlan(planRise);if(q<1)planAnimation=requestAnimationFrame(frame);}planAnimation=requestAnimationFrame(frame);}
 $$('[data-view]').forEach(b=>b.addEventListener('click',()=>animatePlan(Number(b.dataset.view))));$('#rise').addEventListener('input',e=>{cancelAnimationFrame(planAnimation);planManual=true;planRise=Number(e.target.value)/100;drawPlan(planRise);});
-$$('[data-room]').forEach(b=>b.addEventListener('click',()=>{selectedRoom=selectedRoom===b.dataset.room?'':b.dataset.room;$$('[data-room]').forEach(button=>{button.classList.toggle('active',button.dataset.room===selectedRoom);button.setAttribute('aria-pressed',String(button.dataset.room===selectedRoom));});$('#room-description').textContent=roomCopy[selectedRoom]||window.ElveraPalace.defaultCopy;drawPlan(planRise);}));
+$$('[data-room]').forEach(b=>b.addEventListener('click',()=>{selectedRoom=selectedRoom===b.dataset.room?'':b.dataset.room;$$('[data-room]').forEach(button=>{button.classList.toggle('active',button.dataset.room===selectedRoom);button.setAttribute('aria-pressed',String(button.dataset.room===selectedRoom));});$('#room-description').textContent=roomCopy[selectedRoom]||defaultRoomCopy;drawPlan(planRise);}));
 function update(){raf=0;p=clamp((scrollY-journey.offsetTop)/(journey.offsetHeight-innerHeight));const width=innerWidth;
 let sceneIndex=p<.311?0:p<.448?1:p<.628?2:p<.749?3:p<.880?4:5;document.body.classList.toggle('plan-active',sceneIndex===5);
 for(let i=0;i<scenes.length;i++){const [start,end]=sceneBounds[i];let opacity=reduced?(i===sceneIndex?1:0):(i===0?1:between(p,start,start+.024))*(i===5?1:1-between(p,end-.024,end));scenes[i].style.opacity=String(opacity);scenes[i].classList.toggle('active',opacity>.01);scenes[i].inert=i!==sceneIndex;scenes[i].setAttribute('aria-hidden',String(i!==sceneIndex));}
@@ -96,7 +99,7 @@ $('.cloud-one').style.transform=`translate(${-zoom*60}%,${zoom*50}%) scale(${1+z
 $('.cloud-one').style.opacity=String(1-between(p,.07,.22));$('.cloud-two').style.opacity=String(.7*(1-between(p,.08,.22)));
 if(!reduced){const roomScale=1.035+between(p,.44,.636)*.045;$$('.room-photo').forEach(img=>img.style.transform=`scale(${roomScale})`);const basinScale=1.035+between(p,.62,.758)*.055;$$('.sink-photo').forEach(img=>img.style.transform=`scale(${basinScale})`);}
 drawOrnament(clamp((p-.738)/.137));
-let chapter=p<.228?0:p<.311?1:p<.448?2:p<.628?3:p<.749?4:p<.880?5:6;$('#chapter-number').textContent=String(chapter+1).padStart(2,'0');$('#chapter-name').textContent=chapterNames[chapter];$('#progress').style.width=(p*100)+'%';document.body.classList.toggle('light-ui',sceneIndex===2||sceneIndex===3);$('.scroll-cue').style.opacity=String(sceneIndex===5?0:detailUiReveal);$('.scroll-cue').style.pointerEvents=sceneIndex===5||detailUiReveal<.8?'none':'auto';$('.scroll-cue').inert=sceneIndex===5||detailUiReveal<.8;$('.scroll-cue').setAttribute('aria-hidden',String(sceneIndex===5||detailUiReveal<.8));$('#scroll-label').textContent=p<.14?'Scroll to discover':'Continue the journey';
+let chapter=p<.228?0:p<.311?1:p<.448?2:p<.628?3:p<.749?4:p<.880?5:6;$('#chapter-number').textContent=T.number(String(chapter+1).padStart(2,'0'));$('#chapter-name').textContent=chapterNames[chapter];$('.language-toggle').href=(T.ar?'en.html':'index.html')+(p>.015?'#'+chapterIds[chapter]:'');$('#progress').style.width=(p*100)+'%';document.body.classList.toggle('light-ui',sceneIndex===2||sceneIndex===3);$('.scroll-cue').style.opacity=String(sceneIndex===5?0:detailUiReveal);$('.scroll-cue').style.pointerEvents=sceneIndex===5||detailUiReveal<.8?'none':'auto';$('.scroll-cue').inert=sceneIndex===5||detailUiReveal<.8;$('.scroll-cue').setAttribute('aria-hidden',String(sceneIndex===5||detailUiReveal<.8));$('#scroll-label').textContent=p<.14?T.scroll:T.continue;
 if(!planManual){planRise=reduced?1:between(p,.902,.985);if(Math.abs(planRise-lastPlan)>.002||lastPlan===-1)drawPlan(planRise);}
 if(scrollY>journey.offsetHeight-innerHeight*.5){document.body.classList.remove('light-ui');$('.site-header').style.background='#eee8dce8';}else $('.site-header').style.background='transparent';
 lastScene=sceneIndex;
