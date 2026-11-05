@@ -21,3 +21,18 @@
 @media(max-width:700px){.plan-heading h2{font-size:44px}.plan-active .chapter-caption{opacity:0}}
 
 .reduced .threshold-copy{color:var(--ink);text-shadow:none}
+
+/* Cloud-first opening. Branding stays absent until the visitor descends. */
+.site-header,.hero-copy,.chapter-caption,.scroll-cue,.bottom-meta,.progress-track{opacity:0}
+.site-header{pointer-events:none;will-change:opacity,transform}
+.hero-copy{pointer-events:none}
+.intro-clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden;will-change:opacity;background:#e8e4df}
+.intro-clouds img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;will-change:transform,opacity}
+.intro-cloud-left{mask-image:linear-gradient(90deg,#000 0 36%,transparent 72%);-webkit-mask-image:linear-gradient(90deg,#000 0 36%,transparent 72%)}
+.intro-cloud-right{mask-image:linear-gradient(270deg,#000 0 36%,transparent 72%);-webkit-mask-image:linear-gradient(270deg,#000 0 36%,transparent 72%)}
+.reduced .intro-clouds img{transform:none!important}
+.reduced .intro-cloud-left,.reduced .intro-cloud-right{display:none}
+.reduced .hero-copy,.reduced .site-header{transform:none!important}
+@media(max-width:700px){.intro-clouds img{object-position:49% 50%}}
+/* Overscan the drifting cloud plates so their image edges never enter view. */
+.intro-clouds img{inset:-25%;width:150%;height:150%}

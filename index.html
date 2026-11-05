@@ -5,11 +5,12 @@
 <meta name="theme-color" content="#efe9df"><meta name="description" content="District Elvera. A conceptual architectural journey, from clouds to the smallest detail.">
 <title>District Elvera — A Journey Within</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%2374624d' stroke-width='2' d='M8 36V18a12 12 0 0124 0v18M13 36V18a7 7 0 0114 0v18M18 36V18a2 2 0 014 0v18'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="assets/clouds-intro.png" fetchpriority="high">
+<link rel="stylesheet" href="style.css?v=clouds-2">
 </head>
 <body>
 <a class="skip" href="#readable">Skip the animated journey</a>
-<header class="site-header">
+<header class="site-header" inert aria-hidden="true">
 <a class="brand" href="#arrival" aria-label="District Elvera, return to beginning"><svg viewBox="0 0 42 46" aria-hidden="true"><path d="M5 42V21a16 16 0 0132 0v21M11 42V21a10 10 0 0120 0v21M17 42V21a4 4 0 018 0v21"/></svg><span>District Elvera</span></a>
 <nav class="desktop-nav" aria-label="Main navigation"><a href="#arrival">The journey</a><a href="#sanctuary">The residence</a><a href="#plan">The plan</a></nav>
 <button class="menu-toggle" aria-label="Open chapters" aria-expanded="false" aria-controls="chapters"><span></span><span></span></button>
@@ -22,7 +23,12 @@
 <div class="sky-wash"></div><img class="palace-photo" src="assets/palace.png" alt="Conceptual ivory palace emerging from a sea of dawn clouds">
 <div class="arrival-shade"></div>
 <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="cloud cloud-three"></div>
-<div class="hero-copy"><span class="eyebrow">A journey beyond the expected</span><h1><span>District</span>Elvera</h1><div class="fine-rule"></div><p>Architecture, felt before it is understood.</p></div>
+<div class="intro-clouds" role="img" aria-label="Immersed high within luminous dawn clouds">
+<img class="intro-cloud-base" src="assets/clouds-intro.png" alt="" fetchpriority="high" decoding="sync">
+<img class="intro-cloud-left" src="assets/clouds-intro.png" alt="" aria-hidden="true">
+<img class="intro-cloud-right" src="assets/clouds-intro.png" alt="" aria-hidden="true">
+</div>
+<div class="hero-copy" aria-hidden="true"><span class="eyebrow">A journey beyond the expected</span><h1><span>District</span>Elvera</h1><div class="fine-rule"></div><p>Architecture, felt before it is understood.</p></div>
 <div class="approach-copy scene-copy"><span class="eyebrow">01 / The arrival</span><h2>Above the<br><em>ordinary.</em></h2><p>Leave the familiar behind.<br>Let the horizon bring you closer.</p></div>
 <div class="threshold-copy"><span class="eyebrow">02 / The threshold</span><h2>A world<br><em>within.</em></h2></div>
 <div class="window-frame"><div class="window-sheen"></div><i></i><i></i></div>
@@ -59,5 +65,5 @@
 <div class="chapter-anchor" id="arrival" data-progress="0" style="top:0"></div><div class="chapter-anchor" id="threshold" data-progress="0.26" style="top:25%"></div><div class="chapter-anchor" id="sanctuary" data-progress="0.40" style="top:38.5%"></div><div class="chapter-anchor" id="ritual" data-progress="0.60" style="top:57.5%"></div><div class="chapter-anchor" id="detail" data-progress="0.76" style="top:73%"></div><div class="chapter-anchor" id="plan" data-progress="0.91" style="top:87%"></div>
 </div>
 <section class="closing" id="readable"><span class="eyebrow">District Elvera</span><h2>A place to<br><em>feel something.</em></h2><p>A conceptual exploration of architecture, atmosphere and the way we move through a space.</p><a class="closing-link" href="#arrival">Experience it again <span>↗</span></a><details><summary>About this prototype</summary><p>This is a design and motion study. All imagery is generated or illustrated, the residence is fictional, and the floor plan is conceptual. No property, location, specification or availability is represented as factual.</p><p>The journey moves from clouds to a palace window, through a bedroom and bathroom, into an ornamental detail, and finally from a flat floor plan to an architectural volume. Use the chapter menu to go directly to any scene. Reduced motion is available at the bottom left of the experience.</p></details><footer><span>District Elvera</span><span>Architecture · Interiors · Atmosphere</span><span>Concept / 2026</span></footer></section>
-</main><script src="app.js"></script>
+</main><script src="app.js?v=clouds-2"></script>
 </body></html>

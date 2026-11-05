@@ -51,17 +51,30 @@ $$('[data-room]').forEach(b=>b.addEventListener('click',()=>{selectedRoom=select
 function update(){raf=0;p=clamp((scrollY-journey.offsetTop)/(journey.offsetHeight-innerHeight));const width=innerWidth;
 let sceneIndex=p<.342?0:p<.582?1:p<.732?2:p<.862?3:4;document.body.classList.toggle('plan-active',sceneIndex===4);
 for(let i=0;i<scenes.length;i++){const [start,end]=sceneBounds[i];let opacity=reduced?(i===sceneIndex?1:0):(i===0?1:between(p,start,start+.024))*(i===4?1:1-between(p,end-.024,end));scenes[i].style.opacity=String(opacity);scenes[i].classList.toggle('active',opacity>.01);scenes[i].inert=i!==sceneIndex;scenes[i].setAttribute('aria-hidden',String(i!==sceneIndex));}
-const zoom=between(p,.018,.305),entry=between(p,.276,.35);
+const cloudPart=between(p,.002,.095),introGone=reduced?(p>=.025?1:0):between(p,.025,.105);
+const uiReveal=reduced?(p>=.025?1:0):between(p,.038,.079);
+const detailUiReveal=reduced?uiReveal:between(p,.088,.125);
+const intro=$('.intro-clouds');intro.style.opacity=String(1-introGone);intro.style.visibility=introGone>=1?'hidden':'visible';intro.setAttribute('aria-hidden',String(introGone>.9));
+intro.style.background=p<.002?'#e8e4df':'transparent';
+$('.intro-cloud-base').style.opacity=String(reduced?1:1-between(p,.009,.055));
+$('.intro-cloud-base').style.transform=`scale(${1+cloudPart*.36}) translateY(${cloudPart*9}%)`;
+$('.intro-cloud-left').style.transform=`translate(${-cloudPart*62}%,${cloudPart*16}%) scale(${1+cloudPart*.16})`;
+$('.intro-cloud-right').style.transform=`translate(${cloudPart*62}%,${cloudPart*21}%) scale(${1+cloudPart*.2})`;
+const header=$('.site-header');header.style.opacity=String(uiReveal);header.style.transform=`translateY(${-14*(1-uiReveal)}px)`;header.style.pointerEvents=uiReveal>.8?'auto':'none';header.inert=uiReveal<.8;header.setAttribute('aria-hidden',String(uiReveal<.8));
+$('.palace-photo').setAttribute('aria-hidden',String(introGone<.1));
+$('.bottom-meta').style.opacity=String(detailUiReveal);$('.bottom-meta').inert=detailUiReveal<.8;$('.bottom-meta').setAttribute('aria-hidden',String(detailUiReveal<.8));
+$('.chapter-caption').style.opacity=String(innerWidth<=700&&sceneIndex===4?0:detailUiReveal);$('.chapter-caption').setAttribute('aria-hidden',String(detailUiReveal<.8));$('.progress-track').style.opacity=String(detailUiReveal);
+const zoom=between(p,.105,.305),entry=between(p,.276,.35);
 $('.palace-photo').style.transform=reduced?'none':`translateY(${-17*between(p,.12,.295)}vh) scale(${1+zoom*6.2+entry*3})`;
 $('.palace-photo').style.filter=`saturate(.75) brightness(${1-entry*.45})`;
-$('.hero-copy').style.opacity=String(reduced?(p<.18?1:0):1-between(p,.035,.12));$('.hero-copy').style.transform=`translateY(${-80*between(p,.015,.12)}px)`;
-$('.approach-copy').style.opacity=String(reduced?0:between(p,.095,.14)*(1-between(p,.20,.245)));$('.approach-copy').style.transform=`translateY(${24*(1-between(p,.1,.17))}px)`;
-$('.threshold-copy').style.opacity=String(reduced?(p>=.18?1:0):between(p,.23,.26)*(1-between(p,.29,.325)));
+const heroReveal=reduced?(p>=.025&&p<.18?1:0):between(p,.053,.096)*(1-between(p,.136,.175));$('.hero-copy').style.opacity=String(heroReveal);$('.hero-copy').style.transform=`translateY(${20*(1-between(p,.053,.096))-45*between(p,.136,.175)}px)`;$('.hero-copy').setAttribute('aria-hidden',String(heroReveal<.1));
+const approachReveal=reduced?0:between(p,.17,.195)*(1-between(p,.225,.25));$('.approach-copy').style.opacity=String(approachReveal);$('.approach-copy').style.transform=`translateY(${24*(1-between(p,.17,.195))}px)`;$('.approach-copy').setAttribute('aria-hidden',String(approachReveal<.1));
+const thresholdReveal=reduced?(p>=.18?1:0):between(p,.25,.275)*(1-between(p,.30,.33));$('.threshold-copy').style.opacity=String(thresholdReveal);$('.threshold-copy').setAttribute('aria-hidden',String(thresholdReveal<.1));
 const frame=$('.window-frame');frame.style.opacity=String(between(p,.263,.284)*(1-between(p,.332,.35)));frame.style.transform=`translate(-50%,-50%) scale(${.55+entry*18})`;frame.style.top='50%';
 $('.cloud-one').style.transform=`translate(${-zoom*60}%,${zoom*50}%) scale(${1+zoom})`;$('.cloud-two').style.transform=`translate(${zoom*55}%,${zoom*40}%) scale(${1+zoom})`;$('.cloud-three').style.transform=`translateY(${-zoom*150}%)`;
 $('.cloud-one').style.opacity=String(1-between(p,.07,.22));$('.cloud-two').style.opacity=String(.7*(1-between(p,.08,.22)));
 if(!reduced){const roomScale=1.035+between(p,.35,.57)*.045;$$('.room-photo').forEach(img=>img.style.transform=`scale(${roomScale})`);const basinScale=1.035+between(p,.59,.73)*.055;$$('.sink-photo').forEach(img=>img.style.transform=`scale(${basinScale})`);$('.ornament-wrap').style.transform=`translateY(${35*(1-between(p,.73,.86))}px) scale(${.93+between(p,.73,.86)*.17})`;}
-let chapter=p<.23?0:p<.342?1:p<.582?2:p<.732?3:p<.862?4:5;$('#chapter-number').textContent=String(chapter+1).padStart(2,'0');$('#chapter-name').textContent=chapterNames[chapter];$('#progress').style.width=(p*100)+'%';document.body.classList.toggle('light-ui',sceneIndex===1||sceneIndex===2||(!reduced&&p>.26&&p<.342));$('.scroll-cue').style.opacity=sceneIndex===4?'0':'1';$('.scroll-cue').style.pointerEvents=sceneIndex===4?'none':'auto';$('#scroll-label').textContent=p<.08?'Scroll to discover':'Continue the journey';
+let chapter=p<.23?0:p<.342?1:p<.582?2:p<.732?3:p<.862?4:5;$('#chapter-number').textContent=String(chapter+1).padStart(2,'0');$('#chapter-name').textContent=chapterNames[chapter];$('#progress').style.width=(p*100)+'%';document.body.classList.toggle('light-ui',sceneIndex===1||sceneIndex===2||(!reduced&&p>.26&&p<.342));$('.scroll-cue').style.opacity=String(sceneIndex===4?0:detailUiReveal);$('.scroll-cue').style.pointerEvents=sceneIndex===4||detailUiReveal<.8?'none':'auto';$('.scroll-cue').inert=sceneIndex===4||detailUiReveal<.8;$('.scroll-cue').setAttribute('aria-hidden',String(sceneIndex===4||detailUiReveal<.8));$('#scroll-label').textContent=p<.14?'Scroll to discover':'Continue the journey';
 if(!planManual){planRise=reduced?1:between(p,.89,.985);if(Math.abs(planRise-lastPlan)>.002||lastPlan===-1)drawPlan(planRise);}
 if(scrollY>journey.offsetHeight-innerHeight*.5){document.body.classList.remove('light-ui');$('.site-header').style.background='#eee8dce8';}else $('.site-header').style.background='transparent';
 lastScene=sceneIndex;
