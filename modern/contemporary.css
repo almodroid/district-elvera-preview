@@ -1,0 +1,113 @@
+/* Contemporary facade and editorial project story. The imagery is conceptual. */
+.opening{position:relative;height:530vh;background:#eeeae1;z-index:2}
+body.contemporary:has(.plan-finale) .journey{height:790vh}
+body.contemporary.reduced .opening{height:290vh}
+body.contemporary.reduced:has(.plan-finale) .journey{height:440vh}
+.opening .stage{height:100svh;min-height:0}
+.opening-guide{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:22px;z-index:20;font-size:12px;color:#30392f;padding:10px 20px;border-bottom:1px solid #30392f66;opacity:0;white-space:nowrap;background:#f1eee3c9}
+.opening-guide span{font-size:20px}
+.contemporary .palace-photo,.contemporary .palace-close{image-rendering:auto}
+.contemporary .hall-shade{background:linear-gradient(180deg,#eee9df1a,transparent 35% 66%,#e8dfcc17)}
+.project-active .site-header{background:#eeeae1f5!important;color:#34392f!important;backdrop-filter:none}
+.project-intro{position:relative;z-index:12;background:#eeeae1;padding:132px 7vw 100px;color:#34392f;scroll-margin-top:60px}
+.project-index{display:flex;justify-content:space-between;gap:20px;font-size:12px;letter-spacing:.04em;padding-bottom:28px;border-bottom:1px solid #8f958044;margin-bottom:78px}
+.project-editorial{display:grid;grid-template-columns:1.12fr 1fr;gap:11vw;align-items:start}
+.project-editorial h2{font-size:clamp(48px,6.1vw,92px);line-height:1.08;letter-spacing:-.03em}
+[dir=rtl] .project-editorial h2{font-size:clamp(45px,5.4vw,78px);font-weight:700;line-height:1.38;letter-spacing:0}
+.project-description{max-width:470px;padding-top:10px}
+.project-description p{font-size:17px;line-height:1.85;margin:0 0 24px}
+.project-concept-note{display:block;font-size:12px;line-height:1.8;color:#676d5e;border-top:1px solid #8f958044;padding-top:22px;margin-top:38px}
+.project-text-link{display:inline-flex;gap:38px;align-items:center;font-size:13px;padding:14px 0;border-bottom:1px solid #929782;margin-top:36px;min-height:44px}
+.project-text-link span{font-size:20px}
+.project-view{height:260vh;position:relative;z-index:12;background:#eeeae1;--card-width:44%;--card-height:52%;--card-x:70%;--card-y:53%;--heading-opacity:1;--caption-opacity:0;scroll-margin-top:0}
+.project-view-stage{position:sticky;top:0;height:100svh;overflow:hidden;background:#eeeae1;color:#34392f;direction:ltr}
+.project-view-heading{position:absolute;top:31%;left:7vw;width:32%;opacity:var(--heading-opacity);transform:translateY(calc(var(--expand,0)*-30px))}
+.project-view-heading .eyebrow{font-size:11px;letter-spacing:.12em}
+.project-view-heading h2{font-size:clamp(48px,5.4vw,82px);line-height:1.08;margin:24px 0}
+.project-view-heading p{font-size:13px;margin-top:24px}
+[dir=rtl] .project-view-heading{direction:rtl;text-align:right}
+[dir=rtl] .project-view-heading h2{font-size:clamp(42px,4.7vw,70px);line-height:1.4;letter-spacing:0}
+.project-expanding-card{position:absolute;width:var(--card-width);height:var(--card-height);left:var(--card-x);top:var(--card-y);transform:translate(-50%,-50%);margin:0;overflow:hidden;background:#d0c6b3;will-change:width,height,left,top}
+.project-expanding-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.project-expanding-card figcaption{position:absolute;bottom:0;left:0;right:0;padding:25px 4vw;display:flex;justify-content:space-between;gap:20px;color:#f8f4e9;background:linear-gradient(transparent,#111d15a8);font-size:13px;opacity:var(--caption-opacity);min-height:88px;align-items:flex-end}
+[dir=rtl] .project-expanding-card figcaption{direction:rtl}
+.project-expanding-card figcaption span:last-child{font-size:10px;letter-spacing:.06em}
+.project-view-label{position:absolute;bottom:40px;left:7vw;font-size:11px;letter-spacing:.08em;opacity:var(--heading-opacity)}
+.interior-separator{position:relative;z-index:12;padding:110px 7vw 105px;background:#30382f;color:#f0ece3;display:grid;grid-template-columns:1.15fr 1fr;gap:24px 11vw;align-items:start}
+.interior-separator>.eyebrow{grid-column:1/-1;font-size:11px;color:#c3c7b8;margin-bottom:12px}
+.interior-separator h2{font-size:clamp(44px,5.2vw,78px);line-height:1.08;letter-spacing:-.03em}
+[dir=rtl] .interior-separator h2{font-size:clamp(38px,4.7vw,68px);line-height:1.4;letter-spacing:0}
+.interior-separator p{font-size:16px;line-height:1.9;max-width:440px;margin-top:7px}
+.interior-separator .project-text-link{grid-column:2;justify-self:start;margin:0;color:#f0ece3}
+.contemporary .plan-heading p{max-width:29ch;font-size:13px;line-height:1.8}
+.contemporary .plate-number{letter-spacing:.08em}
+.project-static{height:auto;padding:40px 7vw 70px}
+.project-static .project-view-stage{position:relative;height:auto;min-height:0;display:grid;grid-template-columns:.7fr 1.3fr;gap:6vw;align-items:center;overflow:visible}
+.project-static .project-view-heading{position:static;width:auto;opacity:1;transform:none}
+.project-static .project-expanding-card{position:relative;width:100%;height:auto;aspect-ratio:4/3;left:auto;top:auto;transform:none}
+.project-static .project-expanding-card figcaption{opacity:1}
+.project-static .project-view-label{display:none}
+@media(min-width:701px) and (max-height:650px){.project-view-heading{top:25%}.project-view-heading h2{font-size:55px}[dir=rtl] .project-view-heading h2{font-size:48px}}
+@media(max-width:700px){
+ .opening{height:470vh}body.contemporary:has(.plan-finale) .journey{height:660vh}
+ body.contemporary.reduced .opening{height:265vh}body.contemporary.reduced:has(.plan-finale) .journey{height:420vh}
+ .opening-guide{font-size:11px;bottom:24px;padding:8px 15px;gap:18px}
+ .project-intro{padding:102px 7vw 76px}
+ .project-index{font-size:10px;line-height:1.7;margin-bottom:40px;padding-bottom:22px;gap:25px}
+ .project-editorial{grid-template-columns:1fr;gap:30px}
+ .project-editorial h2{font-size:51px;line-height:1.1}
+ [dir=rtl] .project-editorial h2{font-size:44px;line-height:1.4}
+ .project-description{padding:0;max-width:none}
+ .project-description p{font-size:15px;line-height:1.9;margin-bottom:20px}
+ .project-concept-note{font-size:11px;margin-top:25px;padding-top:19px}
+ .project-text-link{font-size:12px;margin-top:20px}
+ .project-view{height:215vh}
+ .project-view-heading{top:15%;left:8vw;width:84%}
+ .project-view-heading .eyebrow{font-size:10px;margin-bottom:16px}
+ .project-view-heading h2,[dir=rtl] .project-view-heading h2{font-size:34px;line-height:1.3;margin:0}
+ .project-view-heading h2 br{display:none}
+ .project-view-heading p{font-size:12px;margin-top:14px}
+ .project-expanding-card figcaption{padding:22px 7vw;align-items:start;flex-direction:column;justify-content:flex-end;gap:5px;font-size:12px}
+ .project-expanding-card figcaption span:last-child{font-size:9px}
+ .project-view-label{left:8vw;bottom:35px;font-size:10px}
+ .interior-separator{padding:76px 7vw;grid-template-columns:1fr;gap:22px}
+ .interior-separator h2,[dir=rtl] .interior-separator h2{font-size:40px;line-height:1.35}
+ .interior-separator p{font-size:14px;line-height:1.85;margin:0}
+ .interior-separator>.eyebrow{margin:0;font-size:10px}
+ .interior-separator .project-text-link{grid-column:1;margin-top:4px}
+ .project-static{padding:35px 7vw 60px}
+ .project-static .project-view-stage{display:block}
+ .project-static .project-view-heading{margin-bottom:28px}
+ .project-static .project-expanding-card{aspect-ratio:1}
+ .contemporary .plan-heading p{font-size:11px;line-height:1.7;max-width:32ch}
+}
+@media(prefers-reduced-motion:reduce){.project-expanding-card{will-change:auto}}
+.comparison-link a{display:inline-flex;gap:20px;padding:10px 0;border-bottom:1px solid #888e7c;font-size:12px;min-height:44px}
+.contemporary .room-photo{object-position:53% 50%;transition:object-position 1s ease}
+.contemporary .room-focus{clip-path:none}
+.contemporary .bed-hotspot{left:54%;top:73%}
+.contemporary .lamp-hotspot{left:78%;top:59%}
+.contemporary .sink-photo{object-position:75% 50%}
+.contemporary .sink-focus{clip-path:ellipse(29% 35% at 78% 66%)}
+.contemporary .ritual-scene.whole .sink-focus{clip-path:ellipse(100% 100% at 50% 50%)}
+@media(max-width:700px){
+ .contemporary .lamp-hotspot{display:none}
+ .contemporary .bed-hotspot{left:50%;top:74%}
+ .contemporary .sink-focus{clip-path:ellipse(43% 34% at 75% 66%)}
+}
+.reduced .room-photo{transition:none!important}
+.opening-guide{background:none}
+.contemporary .floor-lettering{top:88%;width:90%;transform:translate(-50%,-50%) perspective(700px) rotateX(55deg)}
+[dir] .contemporary .floor-lettering h2{font-size:clamp(38px,5vw,72px);line-height:1.3}
+[dir] .contemporary .floor-lettering>span{font-size:10px}
+.opening-hall:not(.project-active) .site-header{background:linear-gradient(#eeeae1d9,#eeeae17a,transparent)!important}
+@media(max-width:700px){
+ .contemporary .floor-lettering{top:88%;transform:translate(-50%,-50%) perspective(500px) rotateX(45deg)}
+ [dir] .contemporary .floor-lettering h2{font-size:32px}
+ [dir] .contemporary .floor-lettering>span{font-size:8px}
+}
+@media(max-width:700px){.contemporary .hotspot{display:none}}
+.project-view.project-static{height:auto}
+@media(max-width:700px){[dir] .contemporary .detail-scene .ornament-wrap{right:4vw;left:auto;top:47%;width:48vw;height:165vw}}
+.project-view.project-static{padding-top:120px}
+.project-static .project-view-heading p{display:none}
