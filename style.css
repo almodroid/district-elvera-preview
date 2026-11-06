@@ -512,3 +512,44 @@ body{font-family:'Elvera Plex',Arial,Helvetica,sans-serif}
  .quality-ready:not(.quality-static) .quality-copy>p{font-size:13px;margin:8px 0;line-height:1.65}
  .quality-ready:not(.quality-static) .quality-controls{bottom:1%}
 }
+
+/* The quality album now bridges the drawn detail and the palace finale. */
+body:has(.plan-finale) .journey{height:1420vh}
+body.reduced:has(.plan-finale) .journey{height:716vh}
+.plan-finale{position:relative;height:260vh;background:#eeebe3;z-index:12}
+.reduced .plan-finale{height:150vh}
+.finale-meta{position:absolute;left:4.5vw;right:4.5vw;bottom:28px;display:flex;align-items:center;justify-content:space-between;font-size:11px;z-index:9;color:var(--ink)}
+.finale-motion{min-height:44px;font-size:11px;padding:7px 0;border-bottom:1px solid currentColor}
+@media(max-width:700px){body:has(.plan-finale) .journey{height:1200vh}body.reduced:has(.plan-finale) .journey{height:672vh}.plan-finale{height:230vh}.finale-meta{left:7%;right:7%;bottom:16px;font-size:10px}.finale-motion{font-size:10px}}
+@media(max-height:580px){.finale-meta{bottom:7px}.finale-meta>span{visibility:hidden}}
+/* Desktop uses a near-square photographic plate rather than a tall portrait. */
+@media(min-width:701px){
+ .quality-ready:not(.quality-static) .quality-plate,[dir=rtl] .quality-ready:not(.quality-static) .quality-plate{top:24%;height:61%;left:48%;right:auto;width:45%}
+ [dir=rtl] .quality-ready:not(.quality-static) .quality-plate{left:auto;right:48%}
+ .quality-ready:not(.quality-static) .quality-plate .quality-card,[dir=rtl] .quality-ready:not(.quality-static) .quality-plate .quality-card{top:8%;left:8%;right:auto;width:min(84%,52vh);height:auto;aspect-ratio:1/1.07;padding:10px 10px 0}
+ .quality-ready:not(.quality-static) .quality-card img{height:auto;aspect-ratio:1.07/1;object-fit:cover}
+ .quality-ready:not(.quality-static) .quality-card figcaption{min-height:38px}
+ .quality-ready:not(.quality-static) .quality-controls,[dir=rtl] .quality-ready:not(.quality-static) .quality-controls{bottom:9%}
+ .quality-static .quality-card img{aspect-ratio:1.07/1;height:auto}
+ .quality-static .quality-card{max-width:480px}
+}
+/* Above the ordinary: a calm glass panel at the lower edge of the image. */
+.approach-copy,[dir=rtl] .approach-copy{top:auto;bottom:16%;left:auto;right:7%;width:340px;max-width:34%;padding:25px 29px;border:1px solid #f4ead62b;border-radius:4px;background:#1b211dd9;color:#fff7e7;backdrop-filter:blur(12px);box-shadow:0 16px 50px #1c1d1630;text-shadow:none}
+.approach-copy h2,[dir=rtl] .approach-copy h2,[dir=ltr] .approach-copy h2{font-size:49px;line-height:1.22}
+.approach-copy p,[dir=rtl] .approach-copy p{font-size:14px;line-height:1.8;margin-top:16px;color:#f0eadf}
+.approach-copy .eyebrow,[dir=rtl] .approach-copy .eyebrow{font-size:11px;margin-bottom:14px;color:#dac59b}
+@media(max-width:700px){
+ .approach-copy,[dir=rtl] .approach-copy{right:7%;left:7%;bottom:17%;width:auto;max-width:none;padding:21px 24px}
+ .approach-copy h2,[dir=rtl] .approach-copy h2,[dir=ltr] .approach-copy h2{font-size:35px;line-height:1.3}
+ .approach-copy h2 br,.approach-copy p br{display:none}
+ .approach-copy p,[dir=rtl] .approach-copy p{font-size:13px;line-height:1.7;margin-top:12px;max-width:none}
+ .approach-copy .eyebrow,[dir=rtl] .approach-copy .eyebrow{font-size:10px;margin-bottom:10px}
+}
+@media(max-height:580px){
+ .approach-copy,[dir=rtl] .approach-copy{right:5%;left:auto;bottom:16%;width:300px;max-width:42%;padding:16px 21px}
+ .approach-copy h2,[dir=rtl] .approach-copy h2,[dir=ltr] .approach-copy h2{font-size:30px}
+ .approach-copy h2 br,.approach-copy p br{display:none}.approach-copy p,[dir=rtl] .approach-copy p{font-size:12px;margin-top:8px}
+}
+@media(min-width:701px){.finale-stage .plan-view{top:9%;height:62%}}
+@media print{.plan-finale{display:none}}
+body:has(.plan-finale){overflow-anchor:none}

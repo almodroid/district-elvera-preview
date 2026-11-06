@@ -8,6 +8,7 @@ const reduced=()=>document.body.classList.contains('reduced')||matchMedia('(pref
 function update(){
  frame=0;const simple=reduced()||innerHeight<580;section.classList.toggle('quality-static',simple);
  const rect=section.getBoundingClientRect(),travel=Math.max(1,section.offsetHeight-innerHeight),progress=clamp(-rect.top/travel);
+ if(rect.top<innerHeight*2&&rect.bottom>0)section.querySelectorAll('img[loading=lazy]').forEach(img=>img.loading='eager');
  const step=progress*2.6,index=Math.min(2,Math.floor(Math.max(0,step-.05)));
  section.classList.add('quality-ready');
  items.forEach((item,i)=>{
@@ -30,5 +31,5 @@ function go(i){i=clamp(i,0,2);const y=section.offsetTop+((i===0?0:i+.3)/2.6)*(se
 buttons.forEach(b=>b.addEventListener('click',()=>go(Number(b.dataset.qualityGo))));
 section.querySelector('.quality-prev').addEventListener('click',()=>go(active-1));section.querySelector('.quality-next').addEventListener('click',()=>go(active+1));
 window.addEventListener('scroll',tick,{passive:true});window.addEventListener('resize',tick,{passive:true});
-document.addEventListener('elvera:motion',tick);window.addEventListener('load',tick);update();
+document.addEventListener('elvera:motion',update);window.addEventListener('load',tick);update();
 })();
