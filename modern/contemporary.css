@@ -7,7 +7,7 @@ body.contemporary.reduced:has(.plan-finale) .journey{height:440vh}
 .opening-guide{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:22px;z-index:20;font-size:12px;color:#30392f;padding:10px 20px;border-bottom:1px solid #30392f66;opacity:0;white-space:nowrap;background:#f1eee3c9}
 .opening-guide span{font-size:20px}
 .contemporary .palace-photo,.contemporary .palace-close{image-rendering:auto}
-.contemporary .hall-shade{background:linear-gradient(180deg,#eee9df1a,transparent 35% 66%,#e8dfcc17)}
+.contemporary .hall-shade{background:radial-gradient(ellipse at 91% 74%,#151c16ad,transparent 66%),linear-gradient(180deg,#eee9df1a,transparent 40%,#111b152e)}
 .project-active .site-header{background:#eeeae1f5!important;color:#34392f!important;backdrop-filter:none}
 .project-intro{position:relative;z-index:12;background:#eeeae1;padding:132px 7vw 100px;color:#34392f;scroll-margin-top:60px}
 .project-index{display:flex;justify-content:space-between;gap:20px;font-size:12px;letter-spacing:.04em;padding-bottom:28px;border-bottom:1px solid #8f958044;margin-bottom:78px}
@@ -97,17 +97,41 @@ body.contemporary.reduced:has(.plan-finale) .journey{height:440vh}
 }
 .reduced .room-photo{transition:none!important}
 .opening-guide{background:none}
-.contemporary .floor-lettering{top:88%;width:90%;transform:translate(-50%,-50%) perspective(700px) rotateX(55deg)}
-[dir] .contemporary .floor-lettering h2{font-size:clamp(38px,5vw,72px);line-height:1.3}
-[dir] .contemporary .floor-lettering>span{font-size:10px}
+/* Upright, floating arrival lettering: keep the words large and uncompressed. */
+.contemporary .floor-lettering{left:auto;right:6.5vw;top:auto;bottom:17%;width:46%;text-align:right;color:#fff9ec;transform:none;transform-origin:right bottom;mix-blend-mode:normal;text-shadow:0 2px 22px #17201688;z-index:2}
+[dir] .contemporary .floor-lettering h2{font-size:clamp(76px,9.5vw,154px);line-height:1.12;letter-spacing:-.035em;font-weight:500}
+[dir=rtl] .contemporary .floor-lettering h2{font-weight:700;letter-spacing:0;line-height:1.22}
+.contemporary .floor-lettering h2 em{display:block;font-style:normal}
+[dir] .contemporary .floor-lettering>span{font-size:12px;line-height:1.8;margin-bottom:20px;letter-spacing:.1em;text-shadow:0 1px 8px #111b15}
+[dir=rtl] .contemporary .floor-lettering>span{letter-spacing:0}
+[dir] .contemporary .floor-lettering i{width:76px;margin:25px 0 0 auto;opacity:.75}
 .opening-hall:not(.project-active) .site-header{background:linear-gradient(#eeeae1d9,#eeeae17a,transparent)!important}
+.opening-hall .opening-guide{color:#fff9ec;border-color:#fff9ec99;text-shadow:0 1px 9px #111b15}
 @media(max-width:700px){
- .contemporary .floor-lettering{top:88%;transform:translate(-50%,-50%) perspective(500px) rotateX(45deg)}
- [dir] .contemporary .floor-lettering h2{font-size:32px}
- [dir] .contemporary .floor-lettering>span{font-size:8px}
+ .contemporary .hall-shade{background:linear-gradient(180deg,transparent 25%,#111b1533 44%,#111b15a6 76%,#111b1544)}
+ .contemporary .floor-lettering{right:7vw;bottom:18%;width:86%;top:auto;left:auto;transform:none}
+ [dir] .contemporary .floor-lettering h2{font-size:clamp(58px,18vw,98px);line-height:1.08}
+ [dir=rtl] .contemporary .floor-lettering h2{font-size:clamp(58px,18.4vw,98px);line-height:1.2}
+ [dir] .contemporary .floor-lettering>span{font-size:11px;margin-bottom:16px;letter-spacing:.04em}
+ [dir=rtl] .contemporary .floor-lettering>span{letter-spacing:0}
+ [dir] .contemporary .floor-lettering i{width:58px;margin-top:20px}
+}
+@media(min-width:701px) and (max-height:600px){
+ .contemporary .floor-lettering{bottom:16%}
+ [dir] .contemporary .floor-lettering h2{font-size:clamp(66px,17vh,104px)}
+ [dir] .contemporary .floor-lettering>span{margin-bottom:8px}
+ [dir] .contemporary .floor-lettering i{margin-top:13px}
 }
 @media(max-width:700px){.contemporary .hotspot{display:none}}
 .project-view.project-static{height:auto}
 @media(max-width:700px){[dir] .contemporary .detail-scene .ornament-wrap{right:4vw;left:auto;top:47%;width:48vw;height:165vw}}
 .project-view.project-static{padding-top:120px}
 .project-static .project-view-heading p{display:none}
+@media(max-height:500px){
+ .contemporary .floor-lettering{bottom:23%}
+ [dir] .contemporary .floor-lettering h2{font-size:clamp(36px,12vh,60px);line-height:1.15}
+ [dir=rtl] .contemporary .floor-lettering h2{font-size:clamp(36px,12vh,60px);line-height:1.2}
+ [dir] .contemporary .floor-lettering>span{font-size:9px;line-height:1.5;margin-bottom:8px}
+ [dir] .contemporary .floor-lettering i{width:44px;margin-top:12px}
+ .contemporary .hall-chapter{display:none}
+}
