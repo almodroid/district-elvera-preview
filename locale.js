@@ -18,5 +18,9 @@
   focusBasin:'التركيز على المغسلة',wholeRoom:'عرض الحمّام كاملًا',
   scroll:'مرّر لتكتشف',continue:'واصل الرحلة',menuOpen:'افتح فهرس الرحلة',menuClose:'أغلق فهرس الرحلة'
  };
+ if(document.body.classList.contains('editorial')) {
+  Object.assign(english,{bedDescription:'A low bed, soft fabric, and clear space to move around it.',lampDescription:'A broad ivory-coloured shade on a brass-toned base, placed beside the bed for a lower pool of light.',bedNote:'Rounded edges. Visible texture.',lampNote:'Ivory shade. Brass tone.'});
+  Object.assign(arabic,{bedDescription:'سرير منخفض وأقمشة ناعمة، مع مساحة مفتوحة للحركة حوله.',lampDescription:'غطاء عريض بلون عاجي فوق قاعدة بلون النحاس، بجوار السرير وعلى ارتفاع منخفض.',bedNote:'حواف مستديرة ونسيج واضح.',lampNote:'غطاء عاجي وقاعدة بلون النحاس.'});
+ }
  window.ElveraText=Object.freeze({...ar?arabic:english,ar,number:n=>ar?String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]):String(n),percent:n=>ar?String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d])+'٪':n+'%'});
 })();

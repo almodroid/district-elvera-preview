@@ -14,7 +14,7 @@ function update(){
  items.forEach((item,i)=>{
   const reveal=i===0?1:ease((step-i+.18)/.45);
   const card=item.querySelector('.quality-card');
-  card.style.setProperty('--card-y',`${(1-reveal)*114}%`);card.style.setProperty('--card-r',`${i===0?-5:i===1?3.5:-1.5}deg`);
+  card.style.setProperty('--card-y',`${(1-reveal)*114}%`);card.style.setProperty('--card-r',`${i===0?-1.8:i===1?1.4:-.5}deg`);
   card.style.setProperty('--card-s',String(1-Math.min(2,Math.max(0,step-i))*.025));
   item.classList.toggle('quality-current',simple||i===index);item.querySelector('.quality-copy').inert=!simple&&i!==index;
   item.querySelector('.quality-copy').setAttribute('aria-hidden',String(!simple&&i!==index));
