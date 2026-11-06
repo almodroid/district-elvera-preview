@@ -1,0 +1,329 @@
+:root{--ink:#51452f;--sand:#eee7db;--muted:#8b7c62;--white:#faf7ef;--line:rgba(80,65,42,.24);--accent:#aa8b55}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--sand);color:var(--ink);font:14px/1.6 Arial,Helvetica,sans-serif;overflow-x:hidden}button,a,input{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{font:inherit;cursor:pointer}a{color:inherit;text-decoration:none}button{color:inherit}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid #856329;outline-offset:7px}button{border:0;background:transparent}h1,h2,p{margin:0}h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;line-height:1.04}h2{font-size:clamp(52px,6vw,96px);letter-spacing:-.055em}h2 em{font-weight:400}p{line-height:1.8}.eyebrow,.small-label{font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase}.eyebrow{display:block;margin-bottom:28px}.skip{position:fixed;top:-100px;left:20px;z-index:100;background:var(--sand);padding:12px 20px}.skip:focus{top:12px}.site-header{position:fixed;z-index:30;top:0;left:0;width:100%;height:116px;padding:34px 4.5vw;display:flex;align-items:center;gap:4vw;color:var(--ink);transition:color .5s,background .5s}.brand{display:flex;align-items:center;gap:17px}.brand svg{width:29px;height:36px;fill:none;stroke:currentColor;stroke-width:1.25}.brand span{font-family:Georgia,serif;font-size:14px;letter-spacing:.22em;text-transform:uppercase}.desktop-nav{display:flex;gap:39px;margin-left:auto}.desktop-nav a{font-size:9px;letter-spacing:.16em;text-transform:uppercase;position:relative}.desktop-nav a:after{content:'';position:absolute;bottom:-8px;left:0;width:0;height:1px;background:currentColor;transition:width .4s}.desktop-nav a:hover:after{width:100%}.menu-toggle{width:30px;height:35px;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0}.menu-toggle span{height:1px;background:currentColor;width:28px;transition:transform .3s}.menu-toggle[aria-expanded=true] span:first-child{transform:translateY(3.5px) rotate(45deg)}.menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}.chapter-menu{position:fixed;inset:0 0 0 auto;z-index:25;width:min(560px,100%);padding:140px 60px 60px;background:#eee8dcf7;backdrop-filter:blur(24px);box-shadow:-60px 0 100px #51452f20}.chapter-menu[hidden]{display:none}.chapter-menu>a{display:block;padding:12px 0;font:28px Georgia,serif;letter-spacing:-.025em}.chapter-menu>a span{font:10px Arial,sans-serif;color:var(--muted);margin-right:20px}.chapter-menu>a:hover{transform:translateX(5px)}.chapter-menu>p{font-size:11px;color:var(--muted);margin-top:35px;max-width:290px}.journey{height:1400vh;position:relative}.stage{height:100vh;height:100svh;position:sticky;top:0;overflow:hidden;background:#e4ded3}.scene{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden}.scene.active{visibility:visible;pointer-events:auto}.arrival-scene{opacity:1;visibility:visible}.sky-wash{position:absolute;inset:0;background:linear-gradient(#e4e6e8,#e7dfd4 60%,#d1c1a5)}.palace-photo{position:absolute;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:50% 67%;will-change:transform;filter:saturate(.75)}.arrival-shade{position:absolute;inset:0;background:linear-gradient(#f2ede646,transparent 43%,#36261422)}.cloud{position:absolute;pointer-events:none;width:110%;height:45%;filter:blur(22px);will-change:transform,opacity}.cloud-one{left:-20%;bottom:-13%;background:radial-gradient(ellipse at 25% 60%,#fcf7ec 0 20%,transparent 60%),radial-gradient(ellipse at 65% 70%,#e9e2d8 10%,transparent 60%)}.cloud-two{right:-30%;bottom:-1%;background:radial-gradient(ellipse at 60% 80%,#fcf7ec 3% 20%,transparent 55%),radial-gradient(ellipse at 20% 100%,#d5d0cb 5%,transparent 60%);opacity:.7}.cloud-three{left:-20%;top:-20%;height:55%;background:radial-gradient(ellipse at 20% 30%,#f9f6efcc 0 30%,transparent 65%)}.hero-copy{position:absolute;top:21%;left:0;text-align:center;width:100%;transform-origin:center;will-change:opacity,transform}.hero-copy .eyebrow{font-size:8px;letter-spacing:.3em;margin-bottom:22px}.hero-copy h1{font-size:clamp(84px,12.8vw,180px);text-transform:uppercase;letter-spacing:.14em;padding-left:.14em;line-height:.88}.hero-copy h1 span{display:block;letter-spacing:.5em;padding-left:.5em;font-size:.18em;margin-bottom:26px}.fine-rule{height:1px;width:55px;background:currentColor}.hero-copy .fine-rule{margin:32px auto 24px}.hero-copy p{font-family:Georgia,serif;font-size:16px;font-style:italic}.scene-copy{position:absolute;left:8.2vw;top:31%;max-width:385px}.scene-copy p{font-size:13px;max-width:275px;margin-top:30px}.scene-copy .eyebrow{margin-bottom:23px}.approach-copy{opacity:0;top:34%;max-width:450px}.threshold-copy{position:absolute;left:0;top:32%;text-align:center;width:100%;color:#f9f1e1;opacity:0;text-shadow:0 1px 40px #231a10}.threshold-copy h2{font-size:clamp(64px,8vw,125px)}.window-frame{position:absolute;left:50%;top:44%;width:240px;height:340px;transform:translate(-50%,-50%);border:16px solid #bca784;border-bottom-width:25px;border-radius:140px 140px 0 0;box-shadow:0 0 0 6px #816f52,inset 0 0 40px #241d13;opacity:0;pointer-events:none;background:linear-gradient(160deg,#1c170e 0,#786b56 80%)}.window-frame i{position:absolute;width:3px;background:#9e8968;height:100%;left:50%;box-shadow:1px 0 2px #e0caa5}.window-frame i:last-child{width:100%;height:3px;left:0;top:49%}.window-sheen{position:absolute;inset:0;background:linear-gradient(118deg,#fff5 0,transparent 35% 60%,#fff2 65%,transparent 80%);border-radius:120px 120px 0 0}.room-photo,.sink-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.035);will-change:transform,filter}.room-blur,.sink-blur{filter:blur(7px) brightness(.82);transition:filter .8s}.room-focus{clip-path:ellipse(28% 43% at 55% 65%);transition:clip-path 1.2s;filter:saturate(.85)}.room-shade{position:absolute;inset:0;background:linear-gradient(90deg,#1f1b15a8,transparent 65%),linear-gradient(0deg,#201d1744,transparent 25%);pointer-events:none}.sanctuary-scene,.ritual-scene{color:#fff8e9}.sanctuary-copy{top:28%}.object-tabs{display:flex;gap:26px;margin-top:32px}.object-tabs button{padding:0 0 9px;border-bottom:1px solid transparent;opacity:.6;font-size:10px;letter-spacing:.1em}.object-tabs button.active{border-color:currentColor;opacity:1}.hotspot{position:absolute;z-index:3;display:flex;gap:12px;align-items:center;color:var(--white);transition:opacity .5s}.hotspot>span{display:grid;place-items:center;width:34px;height:34px;background:#30291c26;border:1px solid #fffd;border-radius:50%;font-size:9px;backdrop-filter:blur(4px);box-shadow:0 0 0 6px #fff1}.hotspot i{font-size:10px;font-style:normal;letter-spacing:.08em;text-shadow:0 1px 10px #000}.bed-hotspot{left:53%;top:68%}.lamp-hotspot{left:75%;top:50%}.material-note{position:absolute;right:8%;bottom:19%;font:italic 17px Georgia,serif;display:flex;align-items:center;gap:16px}.hairline{height:1px;width:45px;background:#fff8}.sink-focus{clip-path:ellipse(26% 42% at 68% 58%);transition:clip-path 1s,filter 1s}.sink-photo{object-position:60% 50%;filter:saturate(.85)}.sink-blur{filter:blur(7px) brightness(.82)}.ritual-scene.whole .sink-focus{clip-path:ellipse(100% 100% at 50% 50%)}.text-button{border-bottom:1px solid #fff8;font-size:10px;letter-spacing:.07em;padding:8px 0;display:flex;gap:25px;margin-top:27px}.text-button span{font-size:16px}.basin-callout{position:absolute;right:9%;bottom:22%;font-size:10px}.basin-callout span{display:block;width:70px;height:40px;border-left:1px solid #fff8;border-bottom:1px solid #fff8;margin-bottom:12px}.detail-scene{background:#ddd0ba}.detail-texture{position:absolute;inset:0;background:repeating-linear-gradient(114deg,transparent 0 8%,#ffffff08 8.1% 8.3%,transparent 8.5% 23%),linear-gradient(105deg,#e9e0d1,#d7c5aa 80%);opacity:.8}.detail-halo{position:absolute;width:700px;height:700px;right:3%;top:-10%;background:radial-gradient(ellipse,#fff8e8aa,transparent 65%)}.detail-scene .scene-copy{top:30%}.detail-scene .fine-rule{margin:35px 0 20px}.small-label{color:#7e6b4e;font-size:8px}.ornament-wrap{position:absolute;right:6vw;width:46vw;max-width:690px;height:89%;top:12%;transform-origin:50% 30%;will-change:transform}.ornament-wrap svg{width:100%;height:100%;overflow:visible}.detail-guide{opacity:.35}.plate-number{position:absolute;bottom:9%;right:6%;font-size:8px;letter-spacing:.24em}.plan-scene{background:#eeebe3}.plan-heading{position:absolute;top:22%;left:7.5%;z-index:2}.plan-heading h2{font-size:clamp(50px,5.8vw,90px)}.plan-heading p{font-size:12px;margin-top:25px}.plan-view{position:absolute;top:9%;left:28%;width:70%;height:72%}.plan-view svg{width:100%;height:100%;overflow:visible}.plan-controls{position:absolute;left:40%;right:9%;bottom:11%;z-index:4}.mode-buttons{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:30px;gap:2px;margin-bottom:20px}.mode-buttons button{font-size:10px;padding:7px 20px;border-radius:20px;letter-spacing:.04em}.mode-buttons button.active{background:#6b604a;color:#fff9ee}.rise-control{display:flex;align-items:center;gap:20px;font-size:9px;text-transform:uppercase;letter-spacing:.07em;float:right;padding-top:9px}.rise-control input{width:130px;accent-color:#7c6b4e;cursor:pointer}.rise-control>span{min-width:28px}.room-selectors{border-top:1px solid var(--line);padding-top:13px;display:flex;gap:26px}.room-selectors button{font-size:10px;padding:2px 0;border-bottom:1px solid transparent}.room-selectors button.active{border-color:currentColor}.plan-controls>p{font-size:10px;color:#7e7565;margin-top:8px;min-height:30px}.plan-disclaimer{position:absolute;bottom:7%;left:40%;font-size:8px;color:#8c816f;letter-spacing:.05em}.chapter-caption{position:absolute;left:4.5vw;bottom:92px;display:flex;align-items:center;gap:13px;font-size:8px;letter-spacing:.13em;text-transform:uppercase;z-index:10;transition:color .5s}.caption-line{width:40px;height:1px;background:currentColor;opacity:.5}.scroll-cue{position:absolute;left:50%;bottom:43px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:13px;z-index:10;transition:color .5s,opacity .5s}.scroll-cue span{font-size:8px;letter-spacing:.18em;text-transform:uppercase}.scroll-cue svg{width:18px;height:31px;stroke:currentColor;fill:none;stroke-width:1}.bottom-meta{position:absolute;left:4.5vw;right:4.5vw;bottom:34px;display:flex;justify-content:space-between;align-items:center;font-size:8px;text-transform:uppercase;letter-spacing:.12em;z-index:9;transition:color .5s}.bottom-meta>span{opacity:.65}.bottom-meta button{font-size:8px;text-transform:uppercase;letter-spacing:.1em;padding:5px 0;border-bottom:1px solid currentColor;opacity:.7}.progress-track{position:absolute;bottom:0;left:0;width:100%;height:2px;background:#8d816427;z-index:15}#progress{height:100%;width:0;background:#a28b60}.chapter-anchor{position:absolute;pointer-events:none;width:1px;height:1px}.light-ui .site-header,.light-ui .chapter-caption,.light-ui .scroll-cue,.light-ui .bottom-meta{color:#fcf7ec}.light-ui.menu-open .site-header{color:var(--ink)}.closing{background:#f1ece2;position:relative;z-index:12;padding:130px 8vw 0;text-align:center}.closing h2{font-size:clamp(54px,7vw,100px)}.closing>p{font-size:12px;max-width:360px;margin:32px auto}.closing-link{display:inline-flex;align-items:center;gap:50px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid #b6a789;padding:12px 0}.closing-link span{font-size:20px}details{max-width:520px;margin:55px auto 90px;text-align:left;font-size:11px;color:#8a7c66}summary{cursor:pointer;text-align:center;font-size:9px;letter-spacing:.12em;text-transform:uppercase}details p{margin-top:15px}footer{border-top:1px solid var(--line);padding:30px 0;display:flex;justify-content:space-between;gap:20px;font-size:8px;letter-spacing:.12em;text-transform:uppercase}.menu-open{overflow:hidden}.reduced .journey{height:700vh}.reduced .cloud,.reduced .window-frame{display:none}.reduced .room-photo,.reduced .sink-photo,.reduced .ornament-wrap,.reduced .palace-photo{transform:none!important;transition:none!important}.reduced .room-blur,.reduced .sink-blur{filter:brightness(.8)}.reduced .room-focus,.reduced .sink-focus{clip-path:none}.reduced .hotspot{display:none}@media(min-width:1700px){.scene-copy{left:10vw}.hero-copy{top:23%}}@media(max-width:1000px){.desktop-nav{gap:22px}.brand span{font-size:12px}.site-header{gap:32px}.scene-copy{left:7%;max-width:320px}.scene-copy h2{font-size:65px}.plan-view{left:23%;width:80%}.plan-controls{left:35%;right:6%}.rise-control{float:none;margin:0 0 18px;padding:0}.mode-buttons{margin-bottom:14px}.plan-disclaimer{left:35%;bottom:6%}.plan-heading{top:20%;left:6%}.plan-heading h2{font-size:60px}.chapter-caption{bottom:87px}}
+@media(max-width:700px){.site-header{height:83px;padding:20px 7%;justify-content:space-between}.brand{gap:12px}.brand svg{width:24px;height:32px}.brand span{font-size:10px;letter-spacing:.19em}.desktop-nav{display:none}.menu-toggle{width:26px}.menu-toggle span{width:26px}.chapter-menu{padding:120px 8% 50px}.chapter-menu>a{font-size:26px;padding:13px 0}.journey{height:1150vh}.hero-copy{top:24%}.hero-copy .eyebrow{font-size:6.5px;letter-spacing:.21em}.hero-copy h1{font-size:21vw;letter-spacing:.08em;padding-left:.08em}.hero-copy h1 span{font-size:.2em;margin-bottom:22px}.hero-copy .fine-rule{margin:28px auto 22px;width:35px}.hero-copy p{font-size:13px}.palace-photo{object-fit:cover;width:160%;left:-30%;object-position:50% 50%}.cloud{height:30%;filter:blur(15px)}.scene-copy{left:8%;top:23%;max-width:82%}.scene-copy h2{font-size:60px}.scene-copy .eyebrow{font-size:8px;margin-bottom:20px}.scene-copy p{font-size:11px;max-width:240px;margin-top:23px}.approach-copy{top:23%}.threshold-copy{top:31%}.threshold-copy h2{font-size:65px}.window-frame{width:180px;height:260px;border-width:12px}.room-photo{object-position:57% 50%}.room-shade{background:linear-gradient(180deg,#19140f8a,transparent 75%),linear-gradient(90deg,#271e1222,transparent)}.sanctuary-copy{top:18%}.sanctuary-copy h2{font-size:58px}.sanctuary-copy p{max-width:210px}.object-tabs{gap:25px;margin-top:22px}.object-tabs button{font-size:9px}.room-focus{clip-path:ellipse(40% 34% at 58% 70%)}.bed-hotspot{left:42%;top:69%}.lamp-hotspot{left:76%;top:57%}.hotspot i{display:none}.material-note{right:8%;bottom:21%;font-size:14px}.material-note .hairline{width:25px}.sink-photo{object-position:64% 50%}.sink-focus{clip-path:ellipse(42% 32% at 60% 65%)}.ritual-scene .scene-copy{top:19%}.ritual-scene .scene-copy h2{font-size:49px}.basin-callout{right:10%;bottom:22%;font-size:9px}.basin-callout span{height:30px;width:40px}.text-button{font-size:9px;margin-top:16px}.detail-scene .scene-copy{top:18%}.detail-scene .scene-copy h2{font-size:56px}.detail-scene .scene-copy p{max-width:235px}.detail-scene .fine-rule{margin:22px 0 15px}.ornament-wrap{right:-24%;top:39%;width:105vw;max-width:none;height:73%}.detail-guide{opacity:.15}.plate-number{right:34%;bottom:17%;font-size:7px}.plan-heading{top:16%;left:8%}.plan-heading .eyebrow{font-size:8px;margin-bottom:16px}.plan-heading h2{font-size:50px;line-height:1}.plan-heading h2 br{display:none}.plan-heading p{font-size:10px;margin-top:16px}.plan-view{top:31%;left:-9%;width:118%;height:39%}.plan-controls{left:8%;right:8%;bottom:14%}.mode-buttons{margin-bottom:12px}.mode-buttons button{font-size:9px;padding:6px 15px}.rise-control{float:right;font-size:7px;gap:8px;padding-top:8px}.rise-control input{width:70px}.rise-control>span{display:none}.room-selectors{gap:0;justify-content:space-between;padding-top:10px}.room-selectors button{font-size:9px}.plan-controls>p{font-size:9px;line-height:1.5;min-height:27px;margin-top:8px}.plan-disclaimer{left:8%;bottom:11%;font-size:6.5px;letter-spacing:0}.chapter-caption{left:7%;bottom:83px;font-size:7px;gap:9px}.caption-line{width:25px}.scroll-cue{bottom:25px;gap:8px}.scroll-cue span{font-size:6px;letter-spacing:.12em}.scroll-cue svg{height:24px;width:14px}.bottom-meta{left:7%;right:7%;bottom:27px;font-size:6px;letter-spacing:.05em}.bottom-meta button{font-size:6px;letter-spacing:.05em}.closing{padding:100px 8% 0}.closing .eyebrow{font-size:8px}.closing h2{font-size:55px}.closing>p{font-size:11px;max-width:280px}.closing-link{font-size:9px}.closing details{font-size:10px;margin-bottom:65px}footer{font-size:6px;letter-spacing:.04em;padding:25px 0;flex-wrap:wrap;justify-content:center;gap:14px}footer span:nth-child(2){display:none}.reduced .journey{height:650vh}}
+@media(max-height:620px) and (min-width:701px){.site-header{height:80px;padding-top:18px;padding-bottom:18px}.hero-copy{top:19%}.hero-copy h1{font-size:100px}.hero-copy .fine-rule{margin:18px auto}.hero-copy p{font-size:13px}.scene-copy{top:23%}.scene-copy h2{font-size:57px}.scene-copy p{margin-top:18px;font-size:11px}.eyebrow{margin-bottom:18px}.plan-controls{bottom:14%}.plan-heading{top:20%}.plan-heading h2{font-size:55px}.plan-disclaimer{bottom:9%}.chapter-caption{bottom:70px}.bottom-meta{bottom:23px}.scroll-cue{bottom:25px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+@media print{.site-header,.journey,.closing-link{display:none}.closing{padding:30px}details{display:block}details>*{display:block}footer{padding:20px}}
+
+/* Soft focal falloff, rather than a hard cutout. */
+.room-focus{clip-path:none!important;transition:mask-image .8s;mask-image:radial-gradient(ellipse 42% 48% at 44% 67%,#000 47%,transparent 100%)}
+.sink-focus{clip-path:none!important;mask-image:radial-gradient(ellipse 39% 56% at 65% 61%,#000 48%,transparent 100%)}
+.ritual-scene.whole .sink-focus{mask-image:none}
+.reduced .room-focus,.reduced .sink-focus{mask-image:none!important}
+@media(max-width:700px){.sink-focus{mask-image:radial-gradient(ellipse 60% 44% at 65% 65%,#000 45%,transparent 100%)}}
+
+.reduced *{transition:none!important;scroll-behavior:auto!important}
+.plate-number{bottom:18%;right:12%}
+@media(max-width:700px){.menu-toggle{min-height:44px;min-width:44px;align-items:flex-end}.bottom-meta{font-size:7px}.bottom-meta button{font-size:8px;padding:10px 0}.scroll-cue span{font-size:7px}.chapter-caption{font-size:8px}.hotspot>span{width:40px;height:40px}.plate-number{bottom:20%;right:34%}}
+@media(max-width:700px){.detail-scene .ornament-wrap{top:49%}.detail-scene .small-label{display:none}.detail-scene .scene-copy{z-index:2}}
+
+.window-frame{display:none}
+
+@media(max-width:700px){.plan-heading h2{font-size:44px}.plan-active .chapter-caption{opacity:0}}
+
+.reduced .threshold-copy{color:var(--ink);text-shadow:none}
+
+/* Cloud-first opening. Branding stays absent until the visitor descends. */
+.site-header,.hero-copy,.chapter-caption,.scroll-cue,.bottom-meta,.progress-track{opacity:0}
+.site-header{pointer-events:none;will-change:opacity,transform}
+.hero-copy{pointer-events:none}
+.intro-clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden;will-change:opacity;background:#e8e4df}
+.intro-clouds img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;will-change:transform,opacity}
+.intro-cloud-left{mask-image:linear-gradient(90deg,#000 0 36%,transparent 72%);-webkit-mask-image:linear-gradient(90deg,#000 0 36%,transparent 72%)}
+.intro-cloud-right{mask-image:linear-gradient(270deg,#000 0 36%,transparent 72%);-webkit-mask-image:linear-gradient(270deg,#000 0 36%,transparent 72%)}
+.reduced .intro-clouds img{transform:none!important}
+.reduced .intro-cloud-left,.reduced .intro-cloud-right{display:none}
+.reduced .hero-copy,.reduced .site-header{transform:none!important}
+@media(max-width:700px){.intro-clouds img{object-position:49% 50%}}
+/* Overscan the drifting cloud plates so their image edges never enter view. */
+.intro-clouds img{inset:-25%;width:150%;height:150%}
+
+/* Continuous vertical detail: the drawing starts in the incoming transition. */
+.detail-scene .ornament-wrap{width:39vw;max-width:560px;height:auto;top:12vh;right:8vw;transform-origin:50% 0;will-change:transform}
+.detail-scene .ornament-wrap svg{display:block;width:100%;height:auto;overflow:visible}
+.detail-scene .plate-number{position:fixed;right:0;bottom:0;display:none}
+.detail-scene .scene-copy{z-index:2}
+.detail-scene .scene-copy p{max-width:280px}
+.ornament-trace{will-change:stroke-dashoffset}
+.reduced .detail-scene .ornament-wrap{transform:none!important;top:10vh;width:32vw;right:12vw;height:81vh}
+.reduced .detail-scene .ornament-wrap svg{height:100%;width:100%}
+@media(max-width:700px){
+ .detail-scene .ornament-wrap{width:78vw;max-width:none;right:-21vw;top:53vh;height:auto}
+ .detail-scene .scene-copy{top:18%;max-width:84%}
+ .detail-scene .scene-copy h2{font-size:51px}
+ .detail-scene .scene-copy p{max-width:215px}
+ .detail-scene .fine-rule{display:none}
+ .reduced .detail-scene .ornament-wrap{top:48%;right:2%;width:46%;height:42vh}
+ .reduced .detail-scene .scene-copy h2{font-size:46px}
+ .room-selectors{gap:12px;justify-content:space-between}
+ .room-selectors button{white-space:nowrap;font-size:8px}
+}
+
+@media(max-width:700px){.reduced .ornament-trace{stroke-width:4.5}}
+
+@media(min-width:701px){.plan-view{top:7.5%;height:71.5%}}
+
+/* A detailed architectural approach opens into a ceremonial hall. */
+.journey{height:1600vh}
+.reduced .journey{height:800vh}
+.palace-close{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:50% 54%;opacity:0;will-change:opacity,transform}
+.hall-scene{background:#e7dcc8}
+.hall-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:50% 52%;will-change:transform}
+.hall-shade{position:absolute;inset:0;background:linear-gradient(180deg,#f7f0e844,transparent 25% 68%,#eee3d12b)}
+.hall-chapter{position:absolute;left:8.2vw;top:20%;font-size:8px}
+.floor-lettering{position:absolute;left:50%;top:70%;width:85%;text-align:center;color:#58452f;transform:translate(-50%,-50%) perspective(700px) rotateX(48deg);transform-origin:50% 50%;opacity:0;mix-blend-mode:multiply;text-shadow:0 1px 1px #fff5}
+.floor-lettering>span{display:block;font-size:10px;letter-spacing:.45em;text-transform:uppercase;margin-bottom:14px}
+.floor-lettering h2{font-size:clamp(40px,6.8vw,110px);letter-spacing:-.04em;line-height:1.1}
+.floor-lettering i{display:block;margin:23px auto 0;width:90px;height:1px;background:currentColor;opacity:.6}
+.reduced .palace-close,.reduced .hall-photo{transform:none!important}
+@media(max-width:700px){
+ .journey{height:1350vh}.reduced .journey{height:750vh}
+ .hall-photo{object-position:50% 50%}
+ .hall-chapter{left:8%;top:17%;font-size:7px}
+ .floor-lettering{top:70%;width:94%;transform:translate(-50%,-50%) perspective(500px) rotateX(36deg)}
+ .floor-lettering>span{font-size:6px;letter-spacing:.28em;margin-bottom:13px}
+ .floor-lettering h2{font-size:39px;letter-spacing:-.05em}
+ .floor-lettering i{width:50px;margin-top:17px}
+ .chapter-menu{padding-top:100px;overflow-y:auto}
+ .chapter-menu>a{padding:10px 0;font-size:25px}
+ .chapter-menu>p{margin-top:20px}
+}
+
+/* Bilingual controls and Arabic typography are self-hosted. */
+@font-face{font-family:'Elvera Alexandria';src:url('assets/fonts/alexandria/Alexandria-Variable.ttf') format('truetype');font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:'Elvera Plex';src:url('assets/fonts/luxury/IBMPlexSansArabic-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+.language-toggle{display:flex;align-items:center;justify-content:center;min-height:44px;min-width:36px;font-size:11px;letter-spacing:.02em;border-bottom:1px solid transparent}
+.language-toggle:hover{border-color:currentColor}.language-toggle[lang=ar]{font-family:'Elvera Alexandria',Tahoma,sans-serif;font-size:12px}
+[dir=rtl] body{font-family:'Elvera Alexandria',Tahoma,Arial,sans-serif;line-height:1.9}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] .brand span,[dir=rtl] .chapter-menu>a{font-family:'Elvera Alexandria',Georgia,serif;letter-spacing:0}
+[dir=rtl] h2{line-height:1.3;letter-spacing:0;font-size:clamp(56px,6.5vw,94px)}
+[dir=rtl] h2 em{font-style:normal}
+[dir=rtl] .eyebrow,[dir=rtl] .small-label,[dir=rtl] button,[dir=rtl] .desktop-nav a,[dir=rtl] .brand span,[dir=rtl] .chapter-caption,[dir=rtl] .scroll-cue span,[dir=rtl] .bottom-meta,[dir=rtl] .rise-control,[dir=rtl] .plan-disclaimer,[dir=rtl] footer,[dir=rtl] summary,[dir=rtl] .closing-link{letter-spacing:0;text-transform:none}
+[dir=rtl] .eyebrow{font-size:10px}
+[dir=rtl] .brand span{font-size:25px;line-height:1.2;white-space:nowrap}
+[dir=rtl] .desktop-nav{margin-right:auto;margin-left:0}
+[dir=rtl] .desktop-nav a{font-size:11px}
+[dir=rtl] .skip{right:20px;left:auto}
+[dir=rtl] .chapter-menu{inset:0 auto 0 0;box-shadow:60px 0 100px #51452f20}
+[dir=rtl] .chapter-menu>a{font-size:31px;line-height:1.5;padding:8px 0}
+[dir=rtl] .chapter-menu>a span{font-family:'Elvera Alexandria',Tahoma,sans-serif;margin-right:0;margin-left:20px}
+[dir=rtl] .chapter-menu>a:hover{transform:translateX(-5px)}
+[dir=rtl] .chapter-menu>p{font-size:11px;line-height:1.9}
+[dir=rtl] .hero-copy h1{padding:0;font-size:clamp(100px,13vw,190px);line-height:1.2;letter-spacing:0}
+[dir=rtl] .hero-copy h1 span{letter-spacing:0;padding:0;font-size:.29em;margin-bottom:0}
+[dir=rtl] .hero-copy .eyebrow{font-size:10px;letter-spacing:0;margin-bottom:8px}
+[dir=rtl] .hero-copy .fine-rule{margin:16px auto 20px}
+[dir=rtl] .hero-copy p{font-family:'Elvera Alexandria',Tahoma,sans-serif;font-size:13px;font-style:normal}
+[dir=rtl] .scene-copy{text-align:right;width:355px;max-width:35%}
+[dir=rtl] .scene-copy p{font-size:13px;line-height:2;max-width:300px;margin-top:20px}
+[dir=rtl] .scene-copy .eyebrow{margin-bottom:16px}
+[dir=rtl] .object-tabs{gap:25px;justify-content:flex-start;margin-top:25px}
+[dir=rtl] .object-tabs button,[dir=rtl] .text-button{font-size:11px}
+[dir=rtl] .material-note{font-family:'Elvera Alexandria',Georgia,serif;font-style:normal;font-size:22px}
+[dir=rtl] .hall-chapter{left:auto;right:8.2vw;font-size:10px}
+[dir=rtl] .floor-lettering>span{font-family:'Elvera Alexandria',Tahoma,sans-serif;font-size:11px;letter-spacing:0;margin-bottom:5px}
+[dir=rtl] .floor-lettering h2{font-size:clamp(56px,7.7vw,120px);line-height:1.25}
+[dir=rtl] .floor-lettering i{margin-top:8px}
+[dir=rtl] .detail-scene .scene-copy{left:auto;right:8.2vw}
+[dir=rtl] .detail-scene .ornament-wrap{right:auto;left:8vw}
+[dir=rtl] .reduced .detail-scene .ornament-wrap{right:auto;left:12vw}
+[dir=rtl] .plan-heading{left:auto;right:7.5%;text-align:right}
+[dir=rtl] .plan-heading h2{font-size:clamp(52px,5.7vw,88px);line-height:1.3}
+[dir=rtl] .plan-heading p{font-size:12px;line-height:2;margin-top:15px}
+[dir=rtl] .plan-view{left:2%;right:auto}
+[dir=rtl] .plan-controls{left:9%;right:40%;text-align:right}
+[dir=rtl] .mode-buttons button{font-size:11px;padding:6px 18px}
+[dir=rtl] .rise-control{float:left;font-size:9px;gap:12px}
+[dir=rtl] .rise-control input{width:115px}
+[dir=rtl] .room-selectors{gap:26px}
+[dir=rtl] .room-selectors button{font-size:11px}
+[dir=rtl] .plan-controls>p{font-size:10px;line-height:1.8;min-height:36px}
+[dir=rtl] .plan-disclaimer{left:9%;right:40%;font-size:9px;text-align:right}
+[dir=rtl] .chapter-caption{right:4.5vw;left:auto;font-size:9px}
+[dir=rtl] .scroll-cue span,[dir=rtl] .bottom-meta,[dir=rtl] .bottom-meta button{font-size:9px}
+[dir=rtl] .closing h2{line-height:1.3}
+[dir=rtl] .closing>p{font-size:13px;line-height:2;max-width:400px}
+[dir=rtl] .closing details{text-align:right;font-size:12px;line-height:2}
+[dir=rtl] .closing-link,[dir=rtl] summary{font-size:11px}
+[dir=rtl] footer{font-size:10px}
+@media(max-width:1000px) and (min-width:701px){
+ [dir=rtl] .brand span{font-size:23px}[dir=rtl] .desktop-nav{gap:25px}
+ [dir=rtl] .plan-heading{right:6%}[dir=rtl] .plan-heading h2{font-size:61px}
+ [dir=rtl] .plan-view{left:-3%}[dir=rtl] .plan-controls,[dir=rtl] .plan-disclaimer{left:6%;right:35%}
+ [dir=rtl] .rise-control{float:none;margin-bottom:15px}
+}
+@media(max-width:700px){
+ .site-header{gap:14px}.language-toggle{font-size:10px;min-width:28px}.language-toggle[lang=ar]{font-size:11px}
+ [dir=rtl] .brand{gap:10px}[dir=rtl] .brand span{font-size:21px}
+ [dir=rtl] .hero-copy{top:24%}[dir=rtl] .hero-copy h1{font-size:29vw;line-height:1.25}
+ [dir=rtl] .hero-copy .eyebrow{font-size:8px}[dir=rtl] .hero-copy p{font-size:10px;padding:0 8%;line-height:2}
+ [dir=rtl] .hero-copy .fine-rule{margin:16px auto}
+ [dir=rtl] .scene-copy{width:auto;max-width:84%;left:8%;right:8%}
+ [dir=rtl] .scene-copy h2{font-size:58px;line-height:1.25}
+ [dir=rtl] .scene-copy p{font-size:11px;max-width:260px;margin-top:15px;margin-right:0;margin-left:auto;line-height:1.9}
+ [dir=rtl] .scene-copy .eyebrow{font-size:9px;margin-bottom:13px}
+ [dir=rtl] .threshold-copy h2{font-size:68px;line-height:1.3}
+ [dir=rtl] .object-tabs{margin-top:17px}[dir=rtl] .object-tabs button{font-size:10px}
+ [dir=rtl] .material-note{font-size:18px;bottom:21%}
+ [dir=rtl] .ritual-scene .scene-copy h2{font-size:51px}
+ [dir=rtl] .text-button{font-size:10px;margin-top:14px}
+ [dir=rtl] .hall-chapter{right:8%;font-size:8px}
+ [dir=rtl] .floor-lettering h2{font-size:54px;line-height:1.3}
+ [dir=rtl] .floor-lettering>span{font-size:8px}
+ [dir=rtl] .detail-scene .scene-copy{right:8%;left:8%}
+ [dir=rtl] .detail-scene .scene-copy h2{font-size:56px}
+ [dir=rtl] .detail-scene .ornament-wrap{right:auto;left:-21vw}
+ [dir=rtl] .reduced .detail-scene .ornament-wrap{right:auto;left:2%}
+ [dir=rtl] .plan-heading{right:8%;left:8%;top:16%}
+ [dir=rtl] .plan-heading h2{font-size:40px;line-height:1.35}
+ [dir=rtl] .plan-heading .eyebrow{font-size:8px;margin-bottom:12px}
+ [dir=rtl] .plan-heading p{font-size:10px;margin-top:10px;line-height:1.8}
+ [dir=rtl] .plan-view{left:-9%;right:auto}
+ [dir=rtl] .plan-controls{left:8%;right:8%}
+ [dir=rtl] .mode-buttons button{font-size:9px;padding:6px 10px}
+ [dir=rtl] .rise-control{float:left;font-size:7px;gap:6px;padding-top:8px}
+ [dir=rtl] .rise-control input{width:62px}
+ [dir=rtl] .room-selectors{gap:10px;justify-content:space-between}
+ [dir=rtl] .room-selectors button{font-size:10px}
+ [dir=rtl] .plan-controls>p{font-size:9px;line-height:1.8;min-height:34px}
+ [dir=rtl] .plan-disclaimer{left:8%;right:8%;font-size:7px}
+ [dir=rtl] .chapter-caption{right:7%;font-size:8px}
+ [dir=rtl] .scroll-cue span{font-size:8px}[dir=rtl] .bottom-meta{font-size:7px}[dir=rtl] .bottom-meta button{font-size:8px}
+ [dir=rtl] .chapter-menu{padding-top:100px}[dir=rtl] .chapter-menu>a{font-size:28px;padding:7px 0}
+ [dir=rtl] .closing h2{font-size:61px}[dir=rtl] .closing>p{font-size:11px}[dir=rtl] .closing details{font-size:10px}[dir=rtl] footer{font-size:8px}
+}
+
+@media(max-width:700px){
+ [dir=rtl] .plan-controls>p{font-size:11px;line-height:1.8;min-height:40px}
+ [dir=rtl] .room-selectors button{font-size:11px;min-height:28px}
+ [dir=rtl] .mode-buttons button{font-size:10px;padding:5px 10px}
+ [dir=rtl] .plan-disclaimer{font-size:8px}
+ [dir=rtl] .bottom-meta button{min-height:44px}
+}
+
+/* Editorial typography: classic display faces with a clear shared UI family. */
+@font-face{font-family:'Elvera Cormorant';src:url('assets/fonts/luxury/CormorantGaramond-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Elvera Cormorant';src:url('assets/fonts/luxury/CormorantGaramond-Italic.woff2') format('woff2');font-style:italic;font-weight:400;font-display:swap}
+body{font-family:'Elvera Plex',Arial,Helvetica,sans-serif}
+[dir=ltr] h1,[dir=ltr] h2,[dir=ltr] .brand span,[dir=ltr] .chapter-menu>a,[dir=ltr] .hero-copy p,[dir=ltr] .material-note{font-family:'Elvera Cormorant',Georgia,'Times New Roman',serif;font-weight:400}
+[dir=ltr] h2{font-size:clamp(58px,6.9vw,104px);line-height:1.03;letter-spacing:-.035em}
+[dir=ltr] .hero-copy h1{font-size:clamp(94px,13.8vw,194px);letter-spacing:.12em;padding-left:.12em}
+[dir=ltr] .hero-copy h1 span{font-weight:400;letter-spacing:.5em}
+[dir=ltr] .hero-copy p{font-size:20px;line-height:1.5}
+[dir=ltr] .material-note{font-size:22px}
+[dir=ltr] .plan-heading h2{font-size:clamp(55px,6.2vw,94px)}
+[dir=ltr] .floor-lettering h2{font-size:clamp(46px,7.5vw,118px)}
+[dir=ltr] .chapter-menu>a{font-size:32px}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] .brand span,[dir=rtl] .chapter-menu>a{font-synthesis:none;font-weight:400}
+[dir=rtl] h2{line-height:1.38}
+[dir=rtl] .brand span{font-size:27px}
+[dir=rtl] .hero-copy h1{font-size:clamp(114px,14vw,198px);line-height:1.2}
+[dir=rtl] .hero-copy h1 span{font-size:.27em;margin-bottom:3px}
+[dir=rtl] .hero-copy .eyebrow{margin-bottom:12px}
+[dir=rtl] .scene-copy p{line-height:1.95}
+[dir=rtl] .floor-lettering h2{line-height:1.35}
+[dir=rtl] .material-note{font-size:24px}
+@media(max-width:700px){
+ [dir=ltr] .hero-copy h1{font-size:22vw;letter-spacing:.07em;padding-left:.07em}
+ [dir=ltr] .hero-copy p{font-size:16px}
+ [dir=ltr] .scene-copy h2{font-size:66px}
+ [dir=ltr] .ritual-scene .scene-copy h2{font-size:54px}
+ [dir=ltr] .detail-scene .scene-copy h2{font-size:57px}
+ [dir=ltr] .plan-heading h2{font-size:48px}
+ [dir=ltr] .floor-lettering h2{font-size:44px}
+ [dir=ltr] .material-note{font-size:18px}
+ [dir=ltr] .closing h2{font-size:63px}
+ [dir=ltr] .chapter-menu>a{font-size:29px}
+ [dir=rtl] .brand span{font-size:23px}
+ [dir=rtl] .hero-copy h1{font-size:31vw}
+ [dir=rtl] .scene-copy h2{line-height:1.34}
+ [dir=rtl] .plan-heading h2{font-size:42px;line-height:1.35}
+ [dir=rtl] .floor-lettering h2{font-size:58px;line-height:1.25}
+ [dir=rtl] .material-note{font-size:21px}
+}
+/* Body copy stays calm and readable beneath the expressive display faces. */
+[dir] .scene-copy p{font-size:14px;line-height:1.85}
+[dir] .plan-heading p{font-size:14px}
+[dir] .closing>p{font-size:14px}
+[dir] .closing details{font-size:13px}
+[dir=rtl] .hero-copy p{font-size:14px}
+@media(max-width:700px){
+ [dir] .scene-copy p{font-size:14px;line-height:1.75;max-width:285px;margin-top:17px}
+ [dir] .sanctuary-copy p{max-width:285px}
+ [dir] .object-tabs{margin-top:16px}
+ [dir] .object-tabs button,[dir] .text-button{font-size:11px}
+ [dir] .plan-heading p{font-size:12px;line-height:1.7;margin-top:12px}
+ [dir] .plan-controls>p{font-size:10px}
+ [dir] .closing>p{font-size:14px;line-height:1.8}
+ [dir] .closing details{font-size:12px}
+ [dir=rtl] .hero-copy p{font-size:13px;line-height:1.8}
+}
+
+/* Scroll-led ascent, followed by a registered match dissolve at the portal. */
+.palace-photo{left:0;top:0;width:100%;height:100%;transform-origin:50% 50%;backface-visibility:hidden}
+.palace-close{transform-origin:50% 50%;backface-visibility:hidden;filter:saturate(.86)}
+.sky-birds{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:0;direction:ltr;contain:layout paint}
+.bird-flight{position:absolute;left:-15%;animation:bird-crossing 30s linear infinite;animation-play-state:paused;will-change:transform}
+.sky-birds svg{display:block;width:100%;height:100%;overflow:visible;fill:#625748}
+.bird-near{width:42px;height:25px;top:21%;opacity:.66}
+.bird-near-1{animation-delay:-12s;animation-duration:33s}
+.bird-near-2{top:24%;width:31px;height:20px;animation-delay:-14s;animation-duration:35s;opacity:.48}
+.bird-near-3{top:17%;width:22px;height:15px;animation-delay:-21s;animation-duration:42s;opacity:.4}
+.bird-wing{transform-box:view-box;transform-origin:20px 12px;animation:bird-wingbeat 1.7s ease-in-out infinite;animation-play-state:paused}
+.bird-wing-right{animation-name:bird-wingbeat-right}
+.bird-near-2 .bird-wing{animation-duration:1.45s;animation-delay:-.6s}
+.bird-near-3 .bird-wing{animation-duration:1.25s;animation-delay:-.9s}
+.bird-flock{top:32%;width:130px;height:45px;opacity:.29;animation-duration:65s;animation-delay:-39s}
+.bird-flock-2{top:15%;opacity:.23;animation-duration:78s;animation-delay:-19s;scale:.68}
+.bird-flock span{position:absolute;left:var(--bx);top:var(--by);width:9px;height:6px}
+.bird-flock .bird-wing{animation-duration:1.3s;animation-delay:var(--phase)}
+.birds-visible .bird-flight,.birds-visible .bird-wing{animation-play-state:running}
+@keyframes bird-crossing{0%{transform:translate3d(-5vw,2vh,0) rotate(-3deg)}50%{transform:translate3d(63vw,-1vh,0) rotate(1deg)}100%{transform:translate3d(135vw,-4vh,0) rotate(-2deg)}}
+@keyframes bird-wingbeat{0%,100%{transform:rotate(0deg) scaleY(1)}50%{transform:rotate(-12deg) scaleY(-.38)}}
+@keyframes bird-wingbeat-right{0%,100%{transform:rotate(0deg) scaleY(1)}50%{transform:rotate(12deg) scaleY(-.38)}}
+.reduced .sky-birds{display:none}
+@media(prefers-reduced-motion:reduce){.sky-birds{display:none}.bird-flight,.bird-wing{animation:none!important}}
+@media(max-width:700px){.bird-near{width:30px;height:18px}.bird-near-2{width:23px;height:15px}.bird-near-3{width:16px;height:12px}.bird-flock-2{display:none}.bird-flock{top:31%;scale:.75}}
+
+@media(max-width:700px){[dir=rtl] .lamp-hotspot{top:64%}}
+
+.palace-photo{mask-image:linear-gradient(to bottom,transparent,#000 18%,#000);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 18%,#000)}
+
+/* Alexandria: a contemporary, quietly luxurious Arabic voice. */
+[dir=rtl] h1,[dir=rtl] h2{font-weight:300;line-height:1.4}
+[dir=rtl] h2 em{font-weight:400}
+[dir=rtl] .hero-copy h1{font-size:clamp(105px,12.5vw,180px);font-weight:300;line-height:1.28}
+[dir=rtl] .hero-copy h1 span{font-size:.22em;font-weight:400;margin-bottom:22px}
+[dir=rtl] .brand span{font-size:20px;font-weight:400;line-height:1.6}
+[dir=rtl] .scene-copy h2{font-size:clamp(54px,5.8vw,88px);line-height:1.4}
+[dir=rtl] .chapter-menu>a{font-weight:300;font-size:26px;line-height:1.6}
+[dir=rtl] .plan-heading h2{font-size:clamp(48px,5.2vw,78px);line-height:1.45}
+[dir=rtl] .material-note{font-weight:300;font-size:19px}
+[dir=rtl] .floor-lettering h2{font-size:clamp(48px,6.8vw,106px);font-weight:300;line-height:1.4}
+[dir=rtl] .closing h2{font-weight:300;line-height:1.5}
+@media(max-width:700px){
+ [dir=rtl] .brand span{font-size:16px}
+ [dir=rtl] .brand{gap:9px}
+ [dir=rtl] .hero-copy h1{font-size:26vw;line-height:1.4}
+ [dir=rtl] .hero-copy h1 span{font-size:.23em;margin-bottom:15px}
+ [dir=rtl] .hero-copy .eyebrow{font-size:8px;margin-bottom:18px}
+ [dir=rtl] .hero-copy p{font-size:12px}
+ [dir=rtl] .scene-copy h2{font-size:49px;line-height:1.45}
+ [dir=rtl] .scene-copy p{font-size:13px;line-height:1.9}
+ [dir=rtl] .ritual-scene .scene-copy h2{font-size:41px}
+ [dir=rtl] .detail-scene .scene-copy h2{font-size:43px}
+ [dir=rtl] .threshold-copy h2{font-size:57px}
+ [dir=rtl] .plan-heading h2{font-size:33px;line-height:1.5}
+ [dir=rtl] .plan-heading p{font-size:11px}
+ [dir=rtl] .floor-lettering h2{font-size:39px;line-height:1.4}
+ [dir=rtl] .material-note{font-size:16px}
+ [dir=rtl] .chapter-menu>a{font-size:24px}
+ [dir=rtl] .closing h2{font-size:48px}
+}
+/* Birds occupy their own sky band, never the title's vertical area. */
+.bird-near{top:15%;width:36px;height:20px}
+.bird-near-2{top:17%;width:27px;height:16px}
+.bird-near-3{top:13%;width:20px;height:13px}
+.bird-flock{top:11%;width:130px;height:45px}
+.bird-flock-2{top:16%;scale:.62}
+@keyframes bird-crossing{0%{transform:translate3d(-5vw,1vh,0) rotate(-3deg)}50%{transform:translate3d(63vw,-.5vh,0) rotate(1deg)}100%{transform:translate3d(135vw,-2vh,0) rotate(-2deg)}}
+@media(max-width:700px){.bird-near{width:27px;height:17px}.bird-near-2{width:21px;height:14px}.bird-near-3{width:16px;height:11px}.bird-flock{top:14%;scale:.7}}

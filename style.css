@@ -89,12 +89,12 @@
 }
 
 /* Bilingual controls and Arabic typography are self-hosted. */
-@font-face{font-family:'Elvera Alexandria';src:url('assets/fonts/alexandria/Alexandria-Variable.ttf') format('truetype');font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:'Elvera Plex';src:url('assets/fonts/ibm-bold/IBMPlexSansArabic-Bold.ttf') format('truetype');font-style:normal;font-weight:700;font-display:swap}
 @font-face{font-family:'Elvera Plex';src:url('assets/fonts/luxury/IBMPlexSansArabic-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
 .language-toggle{display:flex;align-items:center;justify-content:center;min-height:44px;min-width:36px;font-size:11px;letter-spacing:.02em;border-bottom:1px solid transparent}
-.language-toggle:hover{border-color:currentColor}.language-toggle[lang=ar]{font-family:'Elvera Alexandria',Tahoma,sans-serif;font-size:12px}
-[dir=rtl] body{font-family:'Elvera Alexandria',Tahoma,Arial,sans-serif;line-height:1.9}
-[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] .brand span,[dir=rtl] .chapter-menu>a{font-family:'Elvera Alexandria',Georgia,serif;letter-spacing:0}
+.language-toggle:hover{border-color:currentColor}.language-toggle[lang=ar]{font-family:'Elvera Plex',Tahoma,sans-serif;font-size:12px}
+[dir=rtl] body{font-family:'Elvera Plex',Tahoma,Arial,sans-serif;line-height:1.9}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] .brand span,[dir=rtl] .chapter-menu>a{font-family:'Elvera Plex',Georgia,serif;letter-spacing:0}
 [dir=rtl] h2{line-height:1.3;letter-spacing:0;font-size:clamp(56px,6.5vw,94px)}
 [dir=rtl] h2 em{font-style:normal}
 [dir=rtl] .eyebrow,[dir=rtl] .small-label,[dir=rtl] button,[dir=rtl] .desktop-nav a,[dir=rtl] .brand span,[dir=rtl] .chapter-caption,[dir=rtl] .scroll-cue span,[dir=rtl] .bottom-meta,[dir=rtl] .rise-control,[dir=rtl] .plan-disclaimer,[dir=rtl] footer,[dir=rtl] summary,[dir=rtl] .closing-link{letter-spacing:0;text-transform:none}
@@ -105,22 +105,22 @@
 [dir=rtl] .skip{right:20px;left:auto}
 [dir=rtl] .chapter-menu{inset:0 auto 0 0;box-shadow:60px 0 100px #51452f20}
 [dir=rtl] .chapter-menu>a{font-size:31px;line-height:1.5;padding:8px 0}
-[dir=rtl] .chapter-menu>a span{font-family:'Elvera Alexandria',Tahoma,sans-serif;margin-right:0;margin-left:20px}
+[dir=rtl] .chapter-menu>a span{font-family:'Elvera Plex',Tahoma,sans-serif;margin-right:0;margin-left:20px}
 [dir=rtl] .chapter-menu>a:hover{transform:translateX(-5px)}
 [dir=rtl] .chapter-menu>p{font-size:11px;line-height:1.9}
 [dir=rtl] .hero-copy h1{padding:0;font-size:clamp(100px,13vw,190px);line-height:1.2;letter-spacing:0}
 [dir=rtl] .hero-copy h1 span{letter-spacing:0;padding:0;font-size:.29em;margin-bottom:0}
 [dir=rtl] .hero-copy .eyebrow{font-size:10px;letter-spacing:0;margin-bottom:8px}
 [dir=rtl] .hero-copy .fine-rule{margin:16px auto 20px}
-[dir=rtl] .hero-copy p{font-family:'Elvera Alexandria',Tahoma,sans-serif;font-size:13px;font-style:normal}
+[dir=rtl] .hero-copy p{font-family:'Elvera Plex',Tahoma,sans-serif;font-size:13px;font-style:normal}
 [dir=rtl] .scene-copy{text-align:right;width:355px;max-width:35%}
 [dir=rtl] .scene-copy p{font-size:13px;line-height:2;max-width:300px;margin-top:20px}
 [dir=rtl] .scene-copy .eyebrow{margin-bottom:16px}
 [dir=rtl] .object-tabs{gap:25px;justify-content:flex-start;margin-top:25px}
 [dir=rtl] .object-tabs button,[dir=rtl] .text-button{font-size:11px}
-[dir=rtl] .material-note{font-family:'Elvera Alexandria',Georgia,serif;font-style:normal;font-size:22px}
+[dir=rtl] .material-note{font-family:'Elvera Plex',Georgia,serif;font-style:normal;font-size:22px}
 [dir=rtl] .hall-chapter{left:auto;right:8.2vw;font-size:10px}
-[dir=rtl] .floor-lettering>span{font-family:'Elvera Alexandria',Tahoma,sans-serif;font-size:11px;letter-spacing:0;margin-bottom:5px}
+[dir=rtl] .floor-lettering>span{font-family:'Elvera Plex',Tahoma,sans-serif;font-size:11px;letter-spacing:0;margin-bottom:5px}
 [dir=rtl] .floor-lettering h2{font-size:clamp(56px,7.7vw,120px);line-height:1.25}
 [dir=rtl] .floor-lettering i{margin-top:8px}
 [dir=rtl] .detail-scene .scene-copy{left:auto;right:8.2vw}
@@ -327,3 +327,29 @@ body{font-family:'Elvera Plex',Arial,Helvetica,sans-serif}
 .bird-flock-2{top:16%;scale:.62}
 @keyframes bird-crossing{0%{transform:translate3d(-5vw,1vh,0) rotate(-3deg)}50%{transform:translate3d(63vw,-.5vh,0) rotate(1deg)}100%{transform:translate3d(135vw,-2vh,0) rotate(-2deg)}}
 @media(max-width:700px){.bird-near{width:27px;height:17px}.bird-near-2{width:21px;height:14px}.bird-near-3{width:16px;height:11px}.bird-flock{top:14%;scale:.7}}
+
+/* Approved Arabic identity: crisp, expressive IBM Plex Bold with clear Regular copy. */
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h2 em{font-weight:700;font-synthesis:none}
+[dir=rtl] .hero-copy h1{font-family:'Elvera Plex',Tahoma,sans-serif;font-weight:700;font-size:clamp(112px,14.5vw,205px);line-height:1.16;letter-spacing:0}
+[dir=rtl] .hero-copy h1 span{font-family:inherit;font-size:.225em;font-weight:700;line-height:1.35;margin-bottom:6px}
+[dir=rtl] .brand span{font-weight:700;font-size:20px}
+[dir=rtl] .scene-copy h2{font-size:clamp(54px,5.8vw,88px);line-height:1.35}
+[dir=rtl] .chapter-menu>a{font-weight:700;line-height:1.55}
+[dir=rtl] .material-note{font-weight:400}
+[dir=rtl] .floor-lettering h2{font-weight:700;line-height:1.35}
+[dir=rtl] .plan-heading h2{font-weight:700;line-height:1.4}
+[dir=rtl] .closing h2{font-weight:700;line-height:1.4}
+[dir=rtl] .eyebrow,[dir=rtl] .scene-copy p,[dir=rtl] .hero-copy p{font-weight:400}
+@media(max-width:700px){
+ [dir=rtl] .brand span{font-size:16px}
+ [dir=rtl] .hero-copy{top:22%}
+ [dir=rtl] .hero-copy h1{font-size:31vw;line-height:1.15}
+ [dir=rtl] .hero-copy h1 span{font-size:.23em;margin-bottom:7px}
+ [dir=rtl] .scene-copy h2{font-size:51px;line-height:1.32}
+ [dir=rtl] .ritual-scene .scene-copy h2{font-size:43px}
+ [dir=rtl] .detail-scene .scene-copy h2{font-size:46px}
+ [dir=rtl] .threshold-copy h2{font-size:61px}
+ [dir=rtl] .plan-heading h2{font-size:35px;line-height:1.4}
+ [dir=rtl] .floor-lettering h2{font-size:42px;line-height:1.35}
+ [dir=rtl] .closing h2{font-size:53px}
+}

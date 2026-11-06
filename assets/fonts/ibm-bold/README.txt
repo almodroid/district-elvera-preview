@@ -1,7 +1,8 @@
 IBM Plex Sans Arabic Bold
 
-Original, unmodified Google Fonts TTF, retrieved 2026-11-06 for a hero-only
-font experiment. This directory does not change the site's typography.
+Original, unmodified Google Fonts TTF, retrieved 2026-11-06. Initially
+previewed in the hero study, then approved for Arabic display headings.
+The main Arabic site pairs this Bold 700 with IBM Plex Sans Arabic Regular 400.
 
 Source: https://github.com/google/fonts/tree/main/ofl/ibmplexsansarabic
 Font: https://github.com/google/fonts/blob/main/ofl/ibmplexsansarabic/IBMPlexSansArabic-Bold.ttf

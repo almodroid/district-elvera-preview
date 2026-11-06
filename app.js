@@ -105,7 +105,7 @@ const birds=$('.sky-birds'),birdsVisible=between(p,.04,.075)*(1-between(p,.15,.2
 birds.style.opacity=String(reduced?0:birdsVisible);birds.classList.toggle('birds-visible',!reduced&&birdsVisible>.01&&sceneIndex===0);
 if(birdsVisible>.001&&!reduced){
  maskBirdDepth(wideScale,rise+portalAlignment,coverHeight,width);
- const titleTop=innerHeight*(width<=700&&T.ar?.24:.21)+20*(1-between(p,.053,.096))-45*between(p,.128,.152);
+ const titleTop=$('.hero-copy').offsetTop+20*(1-between(p,.053,.096))-45*between(p,.128,.152);
  birds.style.maskImage=`linear-gradient(to bottom,#000 0,#000 ${Math.max(0,titleTop-22)}px,transparent ${Math.max(0,titleTop-10)}px,transparent 100%)`;
 }
 close.style.filter=`saturate(.86) brightness(${1-entry*.13})`;
